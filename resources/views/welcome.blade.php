@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ config('app.name', 'saberProT&T') }}</title>
-        <!-- favicon -->
-        <link rel="shortcut icon" href="{{ asset('images/jardin-logo.png') }}" type="image/x-icon">
+
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -18,7 +17,7 @@
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             <div class="max-w-6xl mx-auto sm:px-1 lg:px-1">
                 <div class="flex justify-center pt-1 sm:justify-start sm:pt-0">
-                    <img class="sombra" src="{{ asset('images/jardin-logo.png?v='.now()->format('H.s')) }}" alt="logo-paola" width="500">
+                    <img class="sombra" src="{{ asset('images/logo/LOGO.png?v='.now()->format('H.s')) }}" alt="logo-paola" width="500">
                 </div>
                 <br>
                 <div class="d-flex justify-content-center">
