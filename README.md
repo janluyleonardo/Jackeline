@@ -5,7 +5,7 @@ All this in order that the users (teachers) can enter in an optimal and safe way
 
 ## Local enviroment
 
-- Clone repository: https://github.com/janluyleonardo/jardin.git
+- Clone repository: [https://github.com/janluyleonardo/yackeline.git](https://github.com/janluyleonardo/yackeline.git)
 - Execute the following commands: [npm install](), [npm run prod](), [composer install]().
 - Jackeline System platform installation requirements: [PHP v 7.4.29](), [node js](), [composer](), [Git]().
 - File [.env]() for production
