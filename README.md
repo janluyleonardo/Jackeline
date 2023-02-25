@@ -9,13 +9,13 @@ All this in order that the users (teachers) can enter in an optimal and safe way
 - Execute the following commands: [npm install](), [npm run prod](), [composer install]().
 - Jackeline System platform installation requirements: [PHP v 7.4.29](), [node js](), [composer](), [Git]().
 - File [.env]() for production
-- File [.sql]() for dtabase
+- File [.sql]() for database
 
 Jackeline System is accessible, powerful and provides the necessary tools for recording and storing student information at any time.
 
 ## Learning Jackeline System
 
-Jackeline System has [video tutorial](https://youtu.be/tfeAJY4WVVc) where you can learn how to optimally manage the platform. 
+Jackeline System has [video tutorial]() where you can learn how to optimally manage the platform. 
 
 ## Jackeline System Sponsors
 
@@ -23,8 +23,8 @@ Janluy Leonardo Moreno Coronado
 
 ### Premium Partners
 
-- **Lady Paola Alvarez Rojas [Facebook](), [Instagram](), [tiktok](), [Whatsapp]()**
-- **Janluy Leonardo Moreno Coronado [Facebook](), [Instagram](), [tiktok](), [Whatsapp]()**
+- **jackeline fs [Facebook](https://www.facebook.com/clubdeportivojackelinefs/), [Instagram](https://www.instagram.com/cdjackelinefs/), [tiktok](https://www.tiktok.com/@cdjackelinefs), [Whatsapp]()**
+- **Janluy Leonardo Moreno Coronado [Facebook](https://www.facebook.com/janluy16/), [Instagram](https://www.instagram.com/patasmoreno/), [tiktok](https://www.tiktok.com/@janluyleonardo), [Whatsapp](https://wa.me/3057186840)**
 
 ## Contributing
 
