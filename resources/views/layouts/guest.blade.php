@@ -4,8 +4,9 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <!-- favicon -->
-        <link rel="shortcut icon" href="{{ asset('images/jardin-logo.png') }}" type="image/x-icon">
+        <!--favicon-->
+        <link rel="shortcut icon" href="{{ asset('favicon.ico?v='.now()->format('H.s')) }}" type="image/x-icon">
+
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
@@ -17,7 +18,7 @@
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
     </head>
     <body>
-        <div class="font-sans text-gray-900 antialiased">
+        <div class="font-sans text-gray-900 dark:bg-gray-900 antialiased">
             {{ $slot }}
         </div>
     </body>
