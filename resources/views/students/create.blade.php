@@ -13,12 +13,12 @@
               <div class="form-holder">
                 <div class="form-content">
                   <div class="form-items">
-                    <form action="{{ route('students.store') }}" method="post"class="requires-validation" autocomplete="off" novalidate>
+                    <form action="{{ route('students.store') }}" method="post" class="requires-validation" novalidate>
                       @csrf
                       <div class="input-group">
                           <div class="col-md-7">
-                              <select class="form-control" name="nivel" id="nivel" required>
-                                  <option value="">Seleccionar un categoria de matricula</option>
+                              <select class="form-control" name="Categoria" id="Categoria" required>
+                                  <option value="">Seleccionar un categoria</option>
                                   <option value="2018">2018</option>
                                   <option value="2017">2017</option>
                                   <option value="2016">2016</option>
@@ -33,13 +33,13 @@
                                   <option value="2006">2006</option>
                                   <option value="2005">2005</option>
                               </select>
-                              <div class="valid-feedback mv-up">You selected a nivel!</div>
-                              <div class="invalid-feedback mv-up">Please select a nivel!</div>
-                              Categoria de matricula
+                              <div class="valid-feedback mv-up">You selected a Categoria!</div>
+                              <div class="invalid-feedback mv-up">Please select a Categoria!</div>
+                              Categoria de inscripcion
                           </div>
                           <div class="col-md-1 "></div>
                           <div class="col-md-4 pt-3">
-                              <input class="form-control" type="date" name="fechaMatricula" required>
+                              <input class="form-control" type="date" name="fechaInscripcion" required>
                               <div class="valid-feedback mv-up">You selected a fecha de matricula!</div>
                               <div class="invalid-feedback mv-up">Please select a fecha de matricula!</div>
                               Fecha de {{ __('Registration') }}
@@ -56,7 +56,7 @@
                       <div class="container cp_oculta" id="Informacion">
                         <div class="input-group">
                           <div class="col-md-12">
-                              <input class="form-control" type="text" name="nomAlumno" placeholder="{{ __('Full Name') }}" required>
+                              <input class="form-control" type="text" name="nomDeportista" placeholder="{{ __('Full Name') }}" required>
                               <div class="valid-feedback">Username field is valid!</div>
                               <div class="invalid-feedback">Username field cannot be blank!</div>
                           </div>
@@ -65,32 +65,31 @@
                             <div class="valid-feedback">Numero de documento field is valid!</div>
                             <div class="invalid-feedback">Numero de documento field cannot be blank!</div>
                           </div>
-
-                            <div class="col-md-4 my-auto mt-3">
-                                <center>
-                                    <input type="radio" class="btn-check"  name="genero" id="masc" value="Masculino" required>
-                                    <label class="btn btn-sm btn-outline-secondary" for="masc"><i><img src="{{asset('images/icono-niño.png')}}" alt="icono-niño" width="45px"></i></label>
-                                    <input type="radio" class="btn-check" name="genero" id="fem" value="Femenino" required>
-                                    <label class="btn btn-sm btn-outline-secondary" for="fem"><i><img src="{{asset('images/icono-niña.png')}}" alt="icono-niña" width="45px"></i></label>
-                                    <div class="valid-feedback">Gender field is valid!</div>
-                                    <div class="invalid-feedback">Gender field cannot be blank!</div>
-                                </center>
-                            </div>
-                            <div class="col-md-4 my-auto ">
-                                <input class="form-control" type="text" name="PesoAlumno" id="PesoAlumno" placeholder="Peso" required>
-                                <div class="valid-feedback">Peso field is valid!</div>
-                                <div class="invalid-feedback">Peso field cannot be blank!</div>
-                            </div>
+                          <div class="col-md-4 my-auto mt-3">
+                            <center>
+                              <input type="radio" class="btn-check"  name="genero" id="masc" value="Masculino" required>
+                              <label class="btn btn-sm btn-outline-secondary" for="masc"><i><img src="{{asset('images/icono-niño.png')}}" alt="icono-niño" width="45px"></i></label>
+                              <input type="radio" class="btn-check" name="genero" id="fem" value="Femenino" required>
+                              <label class="btn btn-sm btn-outline-secondary" for="fem"><i><img src="{{asset('images/icono-niña.png')}}" alt="icono-niña" width="45px"></i></label>
+                              <div class="valid-feedback">Gender field is valid!</div>
+                              <div class="invalid-feedback">Gender field cannot be blank!</div>
+                            </center>
+                          </div>
+                          <div class="col-md-4 my-auto ">
+                            <input class="form-control" type="text" name="PesoDeportista" id="PesoDeportista" placeholder="Peso" required>
+                            <div class="valid-feedback">Peso field is valid!</div>
+                            <div class="invalid-feedback">Peso field cannot be blank!</div>
+                          </div>
                         </div>
                         <div class="input-group">
                           <div class="col-md-4 my-auto ">
-                            <input class="form-control" type="text" name="EstaturaAlumno" id="EstaturaAlumno" placeholder="Estatura" required>
+                            <input class="form-control" type="text" name="EstaturaDeportista" id="EstaturaDeportista" placeholder="Estatura" required>
                             <div class="valid-feedback">Estatura field is valid!</div>
                             <div class="invalid-feedback">Estatura field cannot be blank!</div>
                           </div>
                           <div class="col-md-1 my-auto "></div>
                           <div class="col-md-2 my-auto ">
-                            <input class="form-control" type="text" name="RHAlumno" id="RHAlumno" placeholder="RH" required>
+                            <input class="form-control" type="text" name="RHDeportista" id="RHDeportista" placeholder="RH" required>
                             <div class="valid-feedback">RH field is valid!</div>
                             <div class="invalid-feedback">RH field cannot be blank!</div>
                           </div>
@@ -125,14 +124,14 @@
                             <div class="invalid-feedback">Eps field cannot be blank!</div>
                           </div>
                           <div class="col-md-1 mx-auto"></div>
-                          <div class="col-md-3 mx-auto">
+                          <div class="col-md-4 mx-auto">
                             <input class="form-control" type="text" name="Colegio" placeholder="Colegio" required>
                             <div class="valid-feedback">Colegio field is valid!</div>
                             <div class="invalid-feedback">Colegio field cannot be blank!</div>
                           </div>
                           <div class="col-md-1 mx-auto"></div>
                           <div class="col-md-3 mx-auto">
-                            <input class="form-control mt-3" type="number" name="anioCursado" placeholder="Curso" required>
+                            <input class="form-control mt-3" type="number" name="Curso" placeholder="Curso" required>
                             <div class="valid-feedback">Curso field is valid!</div>
                             <div class="invalid-feedback">Curso field cannot be blank!</div>
                           </div>
@@ -159,7 +158,7 @@
                         </div>
                         <div class="input-group">
                           <div class="col-md-12 ">
-                              <input class="form-control" type="text" name="direccionAlumno"placeholder="Direccion" required>
+                              <input class="form-control" type="text" name="direccionDeportista"placeholder="Direccion" required>
                               <div class="valid-feedback">Direccion field is valid!</div>
                               <div class="invalid-feedback">Direccion field cannot be blank!</div>
                           </div>
@@ -296,6 +295,11 @@
                           </div>
                         </div>
                       </div>
+                      <div class="col-md-4 mx-auto">
+                        <div class="form-button mt-3 ">
+                            <button id="submit" type="submit" class="sombra btn btn-secondary">{{__('Add Athlete')}}</button>
+                        </div>
+                    </div>
                     </form>
                   </div>
                 </div>

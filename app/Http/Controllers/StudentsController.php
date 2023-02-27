@@ -40,11 +40,9 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreStudent $request )
+    public function store(Request $request )
     {
-      $request->merge([
-          'nomAlumno' =>($request->nomAlumno),
-      ]);
+      
       $student = Student::create($request->all());
       return redirect()->route('students.show', $student);
     }

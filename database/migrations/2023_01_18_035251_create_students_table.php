@@ -15,20 +15,24 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->string('nivel');
-            $table->date('fechaMatricula');
-            $table->string('nomAlumno');
-            $table->date('fechaNacimiento');
-            $table->string('genero');
-            $table->string('EdadAlumno');
-            $table->string('documentType');
+            $table->string('Categoria');
+            $table->date('fechaInscripcion');
+            $table->string('nomDeportista');
             $table->bigInteger('numDocumento')->unique();
-            $table->string('Esalud');
+            $table->string('genero');
+            $table->integer('PesoDeportista');
+            $table->string('EstaturaDeportista');
+            $table->string('RHDeportista');
+            $table->date('fechaNacimiento');
+            $table->string('Ciudad');
+            $table->string('Departamento');
             $table->string('EPS');
+            $table->string('Colegio');
+            $table->string('Curso');
             $table->bigInteger('numTelefonico');
             $table->bigInteger('numTelefonicoUno')->nullable();
             $table->bigInteger('numTelefonicoDos')->nullable();
-            $table->string('direccionAlumno');
+            $table->string('direccionDeportista');
             $table->string('barrio');
             $table->string('localidad');
             $table->string('nombreMama');
@@ -41,18 +45,12 @@ class CreateStudentsTable extends Migration
             $table->bigInteger('telefonoPapa');
             $table->string('direccionPapa');
             $table->string('correoPapa')->nullable();
-            $table->string('nomPriRes');
-            $table->bigInteger('docPriRes');
-            $table->string('dirPriRes');
-            $table->bigInteger('telPriRes');
-            $table->string('nomSegRes');
-            $table->bigInteger('docSegRes');
-            $table->string('dirSegRes');
-            $table->bigInteger('telSegRes');
-            $table->string('nomTerRes')->nullable();
-            $table->bigInteger('docTerRes')->nullable();
-            $table->string('dirTerRes')->nullable();
-            $table->bigInteger('telTerRes')->nullable();
+            $table->string('enfermedades');
+            $table->string('medicamento');
+            $table->string('lesion');
+            $table->string('Cirugia');
+            $table->string('impedimento')->nullable();
+            $table->string('lesionOM')->nullable();
             $table->timestamps();
         });
     }
