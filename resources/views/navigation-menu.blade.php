@@ -16,7 +16,7 @@
                         {{ __('Galery') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.*')">
-                        {{ __('Students') }}
+                        {{ __('Athletes') }}
                     </x-jet-nav-link>
                     <x-jet-nav-link href="{{ route('directories.index') }}" :active="request()->routeIs('directories.*')">
                         {{ __('Directories') }}
@@ -150,7 +150,7 @@
                 {{ __('Galery') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('students.index') }}" :active="request()->routeIs('students.index')">
-                {{ __('Students') }}
+                {{ __('Athletes') }}
             </x-jet-responsive-nav-link>
             <x-jet-responsive-nav-link href="{{ route('directories.index') }}" :active="request()->routeIs('directories.*')">
                 {{ __('Directories') }}

@@ -1,9 +1,9 @@
 <div class="p-6 sm:px-20 border-b border-gray-200">
     <div>
-        <x-jet-application-logo class="block h-12 w-auto inset-x-auto"/>
+        {{-- <x-jet-application-logo class="block h-12 w-auto inset-x-auto"/> --}}
     </div>
 
-    <div class="conyainer">
+    <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="mt-3 text-2xl">
@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <div class="conyainer">
+    <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="mt-3 text-2xl">
@@ -72,7 +72,12 @@
         </div>
         <div class="col-md-6">
           <div class="mt-3 text-gray-500">
-            {{-- <iframe src="https://www.facebook.com/plugins/video.php?height=308&href=https%3A%2F%2Fwww.facebook.com%2Fclubdeportivojackelinefs%2Fvideos%2F360486009096274%2F&show_text=false&width=560&t=0" width="100%" height="308" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe> --}}
+            <iframe src="https://www.facebook.com/plugins/video.php?height=308&href=https%3A%2F%2Fwww.facebook.com%2Fclubdeportivojackelinefs%2Fvideos%2F360486009096274%2F&show_text=false&width=560&t=0" width="100%" height="290" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mt-3 text-gray-500">
+            <iframe src="https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fwww.facebook.com%2Fclubdeportivojackelinefs%2Fvideos%2F352430906903237%2F&show_text=false&width=560&t=0" width="100%" height="290" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
           </div>
         </div>
       </div>
