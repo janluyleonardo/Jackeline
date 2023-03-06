@@ -4,196 +4,218 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Informe de: {{ Str::title($student->nomAlumno)}}</title>
-  <link href="{{ env('APP_URL') }}/css/bootstrap.css" rel="stylesheet">
+  <title>Ficha de inscripcion de: {{ Str::title($student->nomDeportista)}}</title>
+  <link href="{{ env('APP_URL') }}css/pdf-imprimir.css" rel="stylesheet">
   <style>
-    @page {
-        margin: 0cm 0cm;
-        font-family: Arial;
-    }
-
     body {
-        margin: 3cm 2cm 2cm;
-    }
-
-    header {
-        position: fixed;
-        top: 0cm;
-        left: 0cm;
-        right: 0cm;
-        height: 2cm;
-        /* background-color: #2a0927; */
-        color: #000;
-        text-align: center;
-        line-height: 30px;
-    }
-
-    footer {
-        position: fixed;
-        bottom: 0cm;
-        left: 0cm;
-        right: 0cm;
-        height: 2cm;
-        /* background-color: #2a0927; */
-        color: #000;
-        text-align: center;
-        line-height: 35px;
-    }
-    .div-img {
-      display: block;
-      justify-content: left;
-      margin: 0 auto;
-    }
-    .col-md-6 {
-      flex: 0 0 auto;
-      width: 50%
-    }
-    body {
-      background-image: url('{{env('APP_URL')}}images/jardin-logo.png');
+      background-image: url("{{ env('APP_URL') }}images/logo/LOGO.png");
       background-repeat: no-repeat;
-      background-size:50%;
+      background-size:100%;
       background-position: 50% 50%;
+      /* background-color:red; */
+      margin: 3rem 2rem 2rem;
     }
-    table{
-      background-color:rgba(255, 255, 255, 0.7);
-    }
-    </style>
+  </style>
 </head>
 <body>
-<header>
-  @if ($student->genero == 'Masculino')
-  <div class="div-img">
-    <img src="{{ env('APP_URL') }}/images/icono-niño.png" alt="jardin-logo" width="100">
-  </div>
-  @else
-  <div class="div-img">
-    <img src="{{ env('APP_URL') }}/images/icono-niña.png" alt="jardin-logo" width="100">
-  </div>
-  @endif
-</header>
+  <header>
+    <div class="h-pdf-left">
+      <img src="{{ env('APP_URL') }}images/logo/LOGO.png" alt="LOGO-jackeline" width="100">
+    </div>
+    <div class="h-pdf-center">
+      <h2 style="text-shadow: 2px 2px #FF0000 !important;">{{__('CLUB DEPORTIVO JACKELINE FS A.F.A')}}</h2>
+        <h5 class="resolucion" style="background-color: rgba(169, 45, 169,0);margin-top:-5%;">
+          Resolución 175 del 13 de marzo de 2017, otorgada por el Instituto de Recreación y Deporte (IDRD).<br>
+        </h5>
+        <h5 style="background-color: rgba(215, 21, 215,0);margin-top:-2%;">
+          <strong>FORMATO UNICO DE REGISTRO</strong>
+        </h5>
+    </div>
+    <div class="h-pdf-right">
+      @if ($student->genero == 'Masculino')
+      <div class="div-img">
+        <img src="{{ env('APP_URL') }}/images/icono-niño.png" alt="logo-niño" width="100">
+      </div>
+      @else
+      <div class="div-img">
+        <img src="{{ env('APP_URL') }}/images/icono-niña.png" alt="logo-niña" width="100">
+      </div>
+      @endif
+    </div>
+  </header>
 
-<main>
-  <table width="100%">
-    <thead>
-      <th>
-        <td><b>{{ Str::upper($student->nomAlumno)}}</b></td>
-      </th>
-    </thead>
+  <table width="100%" class="tabla-datos" border="1">
     <tbody>
       <tr>
-        <td><b>Nivel:</b></td><td>{{ $student->nivel}}</td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Fecha inscripcion:</b></td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;" colspan="2"><b>Nombre completo deportista</b></td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;" colspan="2"><b>Categoria:</b></td>
       </tr>
       <tr>
-        <td><b>Fecha matricula:</b> </td><td>{{ $student->fechaMatricula}}</td>
+        <td align="center">{{ $student->fechaInscripcion}}</td>
+        <td colspan="2" align="center"><b>{{$student->nomDeportista}}</b></td>
+        <td colspan="2" align="center">{{ $student->Categoria}}</td>
       </tr>
       <tr>
-        <td><b>Edad:</b> </td><td>{{ $student->EdadAlumno}}</td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Numero documento:</b></td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Genero:</b></td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Peso:</b></td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Estatura:</b></td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>RH:</b></td>
       </tr>
       <tr>
-        <td><b>Genero:</b> </td><td>{{ $student->genero}}</td>
+        <td align="center">{{ $student->numDocumento}}</td>
+        <td align="center">{{ $student->genero}}</td>
+        <td align="center">{{ $student->PesoDeportista}}</td>
+        <td align="center">{{ $student->EstaturaDeportista}}</td>
+        <td align="center">{{ $student->RHDeportista}}</td>
       </tr>
       <tr>
-        <td><b>EPS:</b> </td><td>{{ $student->EPS}}</td>
+        <td rowspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Fecha de nacimiento:</b> </td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Lugar de nacimiento:</b> </td>
+        <td colspan="2" rowspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>EPS:</b> </td>
       </tr>
       <tr>
-        <td><b>Fecha de nacimiento:</b> </td><td>{{ $student->fechaNacimiento}}</td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Ciudad:</b> </td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Departamento:</b> </td>
       </tr>
       <tr>
-        <td><b>Tipo documento:</b> </td><td>{{ $student->documentType}}</td>
+        <td align="center">{{ $student->fechaNacimiento}}</td>
+        <td align="center">{{ $student->Ciudad}}</td>
+        <td align="center">{{ $student->Departamento}}</td>
+        <td align="center" colspan="2">{{ $student->EPS}}</td>
       </tr>
       <tr>
-        <td><b>Numero documento:</b> </td><td>{{ $student->numDocumento}}</td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Direccion:</b></td>
+        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Barrio:</b></td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Localidad:</b></td>
       </tr>
       <tr>
-        <td><b>Regimen de salud:</b> </td><td>{{ $student->Esalud}}</td>
+        <td align="center" colspan="2">{{ $student->direccionDeportista}}</td>
+        <td align="center">{{ $student->barrio}}</td>
+        <td align="center" colspan="2">{{ $student->localidad}}</td>
       </tr>
       <tr>
-        <td><b>Numero telefonico:</b> </td><td>{{ $student->numTelefonico}}</td>
+        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Telefonos de contacto:</b></td>
       </tr>
       <tr>
-        <td><b>Numero telefonico 1:</b> </td><td>{{ $student->numTelefonicoUno}}</td>
+        <td align="center">{{ $student->numTelefonico}}</td>
+        <td align="center">{{ $student->numTelefonicoUno}}</td>
+        <td align="center">{{ $student->numTelefonicoDos}}</td>
       </tr>
       <tr>
-        <td><b>Numero telefonico 2:</b> </td><td>{{ $student->numTelefonicoDos}}</td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Colegio:</b></td>
+        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Curso:</b></td>
       </tr>
       <tr>
-        <td><b>Direccion:</b> </td><td>{{ $student->direccionAlumno}}</td>
+        <td align="center" colspan="2">{{ $student->Colegio}}</td>
+        <td align="center">{{ $student->Curso}}</td>
+      </tr>
+
+      <tr>
+        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS MAMA</b></td>
       </tr>
       <tr>
-        <td><b>Barrio:</b> </td><td>{{ $student->barrio}}</td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Nombre</b></td>
+        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Direccion</b></td>
       </tr>
       <tr>
-        <td><b>Localidad:</b> </td><td>{{ $student->localidad}}</td>
+        <td align="center" colspan="2">{{ $student->nombreMama}}</td>
+        <td align="center" colspan="3">{{ $student->direccionMama}}</td>
       </tr>
       <tr>
-        <td><b>Nombre mama:</b> </td><td>{{ $student->nombreMama}}</td>
+        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Documento</b></td>
+        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Telefono</b></td>
+        <td colspan="4" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Correo</b></td>
       </tr>
       <tr>
-        <td><b>Documento mama:</b> </td><td>{{ $student->documentoMama}}</td>
+        <td align="center" colspan="1">{{ $student->documentoMama}}</td>
+        <td align="center" colspan="1">{{ $student->telefonoMama}}</td>
+        <td align="center" colspan="4">{{ $student->correoMama}}</td>
+      </tr>
+
+      <tr>
+        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS PAPA</b></td>
       </tr>
       <tr>
-        <td><b>Telefono mama:</b> </td><td>{{ $student->telefonoMama}}</td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Nombre</b></td>
+        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Direccion</b></td>
       </tr>
       <tr>
-        <td><b>Direccion mama:</b> </td><td>{{ $student->direccionMama}}</td>
+        <td align="center" colspan="2">{{ $student->nombrePapa}}</td>
+        <td align="center" colspan="3">{{ $student->direccionPapa}}</td>
       </tr>
       <tr>
-        <td><b>Correo mama:</b> </td><td>{{ $student->correoMama}}</td>
+        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Documento</b></td>
+        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Telefono</b></td>
+        <td colspan="4" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Correo</b></td>
       </tr>
       <tr>
-        <td><b>Nombre papa:</b> </td><td>{{ $student->nombrePapa}}</td>
+        <td align="center" colspan="1">{{ $student->documentoPapa}}</td>
+        <td align="center" colspan="1">{{ $student->telefonoPapa}}</td>
+        <td align="center" colspan="4">{{ $student->correoPapa}}</td>
       </tr>
       <tr>
-        <td><b>Documento papa:</b> </td><td>{{ $student->documentoPapa}}</td>
+        <td colspan="5" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>HISTORIA CLINICA</b></td>
+      </tr>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Enfermedades que padece:</b> </td>
+        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Usa algun medicamento:</b> </td>
+      <tr>
       </tr>
       <tr>
-        <td><b>Telefono papa:</b> </td><td>{{ $student->telefonoPapa}}</td>
+        <td align="center" colspan="2">{{ $student->enfermedades}}</td>
+        <td align="center" colspan="3">{{ $student->medicamento}}</td>
       </tr>
       <tr>
-        <td><b>Direccion papa:</b> </td><td>{{ $student->direccionPapa}}</td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene alguna lesion congenita:</b> </td>
+        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene cirujias:</b> </td>
       </tr>
       <tr>
-        <td><b>Correo papa:</b> </td><td>{{ $student->correoPapa}}</td>
+        <td align="center" colspan="2">{{ $student->lesion}}</td>
+        <td align="center" colspan="3">{{ $student->Cirugia}}</td>
       </tr>
       <tr>
-        <td><b>1er responsable:</b> </td><td>{{ $student->nomPriRes}}</td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Algo que le impida practivcar algun deporte:</b> </td>
+        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene alguna lesion oseo muscular:</b> </td>
       </tr>
       <tr>
-        <td><b>Documento:</b> </td><td>{{ $student->docPriRes}}</td>
+        <td align="center" colspan="2">{{ $student->impedimento}}</td>
+        <td align="center" colspan="3">{{ $student->lesionOM}}</td>
       </tr>
       <tr>
-        <td><b>Direccion:</b> </td><td>{{ $student->dirPriRes}}</td>
+        <td colspan="5" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>AUTORIZACION PARA MENORES DE 18 AÑOS</b></td>
       </tr>
       <tr>
-        <td><b>Telefono:</b> </td><td>{{ $student->telPriRes}}</td>
-      </tr>
-      <tr>
-        <td><b>2do responsable:</b> </td><td>{{ $student->nomSegRes}}</td>
-      </tr>
-      <tr>
-        <td><b>Documento:</b> </td><td>{{ $student->docSegRes}}</td>
-      </tr>
-      <tr>
-        <td><b>Direccion:</b> </td><td>{{ $student->dirSegRes}}</td>
-      </tr>
-      <tr>
-        <td><b>Telefono:</b> </td><td>{{ $student->telSegRes}}</td>
-      </tr>
-      <tr>
-        <td><b>3er responsable:</b> </td><td>{{ $student->nomTerRes}}</td>
-      </tr>
-      <tr>
-        <td><b>Documento:</b> </td><td>{{ $student->docTerRes}}</td>
-      </tr>
-      <tr>
-        <td><b>Direccion:</b> </td><td>{{ $student->dirTerRes}}</td>
-      </tr>
-      <tr>
-        <td><b>Telefono:</b> </td><td>{{ $student->telTerRes}}</td>
+        <td align="justify" colspan="5">{{ __('Authorization to a minor') }}</td>
       </tr>
     </tbody>
   </table>
-</main>
+  <table width="100%">
+  {{-- <table width="100%" class="tabla-datos" border="1"> --}}
+    <tbody>
+      <tr>
+        <td style="width:33.333333%" rowspan="8" align="center">
+          <div class="firmas">
+
+          </div>
+          Firma del jugador
+        </td>
+        <td style="width:33.333333%" rowspan="8" align="center">
+          <div class="firmas">
+
+          </div>
+          Firma del padre
+        </td>
+        <td style="width:33.333333%" rowspan="8" align="center">
+          <div class="firmas">
+
+          </div>
+          Firma de la madre
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
 
 <footer>
     <h1>{{ env('APP_NAME') }}</h1>

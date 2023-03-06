@@ -42,7 +42,7 @@ class StudentsController extends Controller
      */
     public function store(Request $request )
     {
-      
+
       $student = Student::create($request->all());
       return redirect()->route('students.show', $student);
     }
@@ -57,7 +57,8 @@ class StudentsController extends Controller
     {
       $student = Student::findOrFail($id);
       $pdf = PDF::loadView('students.pdf', compact('student'));
-      return $pdf->download($student->nomAlumno.'.pdf');
+      return $pdf->download($student->nomDeportista.'.pdf');
+      // return $pdf->setPaper('A4','landscape')->download($student->nomDeportista.'.pdf');
     }
 
     /**
