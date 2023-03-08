@@ -37,10 +37,19 @@ footer {
   justify-content: left;
   margin: 0 auto;
 }
+
+.photo{
+  width: 2cm;
+  height: 2.5cm;
+  border:2px solid #000;
+}
+
 div.firmas{
-  height: 5%;
+  background-color: rgba(255, 255, 255, 0.7);
+  height: 8%;
   margin-left: 10px;
   margin-right: 10px;
+  margin-top: -15px !important;
   border-bottom: 2px solid #000;
 }
 

@@ -13,7 +13,7 @@
               <div class="form-holder">
                 <div class="form-content">
                   <div class="form-items">
-                    <form action="{{ route('students.store') }}" method="post" class="requires-validation" novalidate>
+                    <form action="{{ route('students.store') }}" method="post" class="requires-validation" enctype="multipart/form-data" novalidate>
                       @csrf
                       <div class="input-group">
                           <div class="col-md-7">
@@ -55,6 +55,11 @@
                       </div>
                       <div class="container cp_oculta" id="Informacion">
                         <div class="input-group">
+                          <div class="col-md-12">
+                              <input class="form-control mt-3" type="file" name="Photo" accept="image/png, image/jpeg" required>
+                              <div class="valid-feedback">UserPhoto field is valid!</div>
+                              <div class="invalid-feedback">UserPhoto field cannot be blank!</div>
+                          </div>
                           <div class="col-md-12">
                               <input class="form-control" type="text" name="nomDeportista" placeholder="{{ __('Full Name') }}" required>
                               <div class="valid-feedback">Username field is valid!</div>

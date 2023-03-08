@@ -32,15 +32,9 @@
         </h5>
     </div>
     <div class="h-pdf-right">
-      @if ($student->genero == 'Masculino')
       <div class="div-img">
-        <img src="{{ env('APP_URL') }}/images/icono-niño.png" alt="logo-niño" width="100">
+        <img class="photo" src="{{env('APP_URL').$student->Photo}}" alt="foto-deportista">
       </div>
-      @else
-      <div class="div-img">
-        <img src="{{ env('APP_URL') }}/images/icono-niña.png" alt="logo-niña" width="100">
-      </div>
-      @endif
     </div>
   </header>
 
@@ -113,7 +107,7 @@
       </tr>
 
       <tr>
-        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS MAMA</b></td>
+        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS MADRE</b></td>
       </tr>
       <tr>
         <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Nombre</b></td>
@@ -135,7 +129,7 @@
       </tr>
 
       <tr>
-        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS PAPA</b></td>
+        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS PADRE</b></td>
       </tr>
       <tr>
         <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Nombre</b></td>
@@ -168,14 +162,14 @@
       </tr>
       <tr>
         <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene alguna lesion congenita:</b> </td>
-        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene cirujias:</b> </td>
+        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene cirugias:</b> </td>
       </tr>
       <tr>
         <td align="center" colspan="2">{{ $student->lesion}}</td>
         <td align="center" colspan="3">{{ $student->Cirugia}}</td>
       </tr>
       <tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Algo que le impida practivcar algun deporte:</b> </td>
+        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Algo que le impida practicar algun deporte:</b> </td>
         <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene alguna lesion oseo muscular:</b> </td>
       </tr>
       <tr>
@@ -186,30 +180,24 @@
         <td colspan="5" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>AUTORIZACION PARA MENORES DE 18 AÑOS</b></td>
       </tr>
       <tr>
-        <td align="justify" colspan="5">{{ __('Authorization to a minor') }}</td>
+        <td align="justify" style="font-size:12px" colspan="5">{{ __('Authorization to a minor') }}</td>
       </tr>
     </tbody>
   </table>
-  <table width="100%">
+  <table width="100%" border="0">
   {{-- <table width="100%" class="tabla-datos" border="1"> --}}
     <tbody>
       <tr>
         <td style="width:33.333333%" rowspan="8" align="center">
-          <div class="firmas">
-
-          </div>
+          <div class="firmas"></div>
           Firma del jugador
         </td>
         <td style="width:33.333333%" rowspan="8" align="center">
-          <div class="firmas">
-
-          </div>
+          <div class="firmas"></div>
           Firma del padre
         </td>
         <td style="width:33.333333%" rowspan="8" align="center">
-          <div class="firmas">
-
-          </div>
+          <div class="firmas"></div>
           Firma de la madre
         </td>
       </tr>

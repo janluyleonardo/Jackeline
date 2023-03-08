@@ -15,6 +15,7 @@ class Student extends Model
    * @var string[]
    */
   protected $fillable = [
+    'Photo',
     'Categoria',
     'fechaInscripcion',
     'nomDeportista',
