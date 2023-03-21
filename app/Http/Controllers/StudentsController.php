@@ -88,10 +88,15 @@ class StudentsController extends Controller
       $newStudent->impedimento = $request->impedimento;
       $newStudent->lesionOM = $request->lesionOM;
 
-      $newStudent->save();
-
+      try {
+        //code...
+        $newStudent->save();
+      } catch (\Throwable $th) {
+        // throw $th;
+        return redirect()->route('students.show', $newStudent)->bannerdanger('no se pudo agregar nuevo registro => '.$th);
+      }
       // $student = Student::create($request->all());
-      return redirect()->route('students.show', $newStudent)->banner('Registro creado correctamente.');;
+      return redirect()->route('students.show', $newStudent)->banner('Registro creado correctamente.');
     }
 
     /**

@@ -13,7 +13,7 @@
               <div class="form-holder">
                 <div class="form-content">
                   <div class="form-items">
-                      <form action="{{ route('students.update', $student) }}" method="post"class="requires-validation" novalidate>
+                      <form action="{{ route('students.update', $student) }}" method="post" class="requires-validation" enctype="multipart/form-data" novalidate>
                         @method('put')
                         @csrf
                         <div class="input-group">
@@ -70,6 +70,11 @@
                         </div>
                         <div class="container">
                           <div class="input-group">
+                            <div class="col-md-12">
+                              <input class="form-control mt-3" type="file" name="Photo" accept="image/png, image/jpeg" required>
+                              <div class="valid-feedback">UserPhoto field is valid!</div>
+                              <div class="invalid-feedback">UserPhoto field cannot be blank!</div>
+                            </div>
                             <div class="col-md-12">
                                 <input class="form-control" type="text" name="nomDeportista" value="{{ old('EstaturaDeportista', $student->nomDeportista) }}" required>
                                 <div class="valid-feedback">Username field is valid!</div>
