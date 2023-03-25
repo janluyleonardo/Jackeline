@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('Students list') }}
+      {{ __('Athletes list') }}
     </h2>
   </x-slot>
 
@@ -11,13 +11,6 @@
         <div class="container">
           <div class="row py-0">
             <div class="col-md-6 mx-auto py-4">
-              @if ($mensaje != "")
-              <div class="col-md-12">
-                <div class="alert alert-success mt-auto" role="alert">
-                  <h1>{{ $mensaje }}</h1>
-                </div>
-              </div>
-              @endif
               <div class="card bg-light ">
                 <div class="card-header">
                   <div class="row">

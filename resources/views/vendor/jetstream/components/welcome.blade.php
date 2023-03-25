@@ -1,6 +1,6 @@
 <div class="p-6 sm:px-20 border-b border-gray-200">
     <div>
-        {{-- <x-jet-application-logo class="block h-12 w-auto inset-x-auto"/> --}}
+        <x-jet-application-logo class="block h-12 w-auto inset-x-auto"/>
     </div>
 
     <div class="container">
@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <div class="container">
+    {{-- <div class="container">
       <div class="row">
         <div class="col-md-6">
           <div class="mt-3 text-gray-500">
@@ -91,7 +91,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 </div>
 
 

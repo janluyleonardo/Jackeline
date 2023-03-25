@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\generalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\DirectoriesController;
@@ -37,6 +38,6 @@ Route::middleware([
     Route::get('/export', [DirectoriesController::class, 'export'])->name('export');
 });
 
-Route::get('/prueba', function () {
-  return view('prueba');
-});
+Route::get('/index', [generalController::class, 'index'])->name('index');
+Route::get('/Programming', [generalController::class, 'Programming'])->name('Programming');
+Route::get('/Announcements', [generalController::class, 'Announcements'])->name('Announcements');
