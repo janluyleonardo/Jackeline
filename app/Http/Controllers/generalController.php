@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\programming;
 use Illuminate\Http\Request;
 
 class generalController extends Controller
@@ -23,7 +24,8 @@ class generalController extends Controller
      */
     public function Programming()
     {
-      return view('general.Programming');
+      $programming = programming::orderBy('hora')->paginate(5);
+      return view('general.Programming', compact('programming'));
     }
 
     /**

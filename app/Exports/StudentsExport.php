@@ -14,7 +14,7 @@ class StudentsExport implements FromView, ShouldAutoSize
     */
     public function view() : View
     {
-        return view('directories.export',[
+        return view('programming.export',[
           'Students' => Student::all()
         ]);
     }

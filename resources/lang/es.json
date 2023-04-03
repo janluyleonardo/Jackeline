@@ -189,9 +189,13 @@
     "Welcome_subtitle": "Esta aplicación proporciona un ecosistema hermoso y robusto para el manejo y la administración de su Deportistas nuevo y antiguos. JACKELINE FS system está diseñado para ayudarle a consultar información, agregar información y/o editar información en caso de ser necesario para el registro y control de sus Deportistasde sus Deportistas.",
     "Enter Estudent": "Ingresar deportista",
     "Full Name": "Apellido(s) y nombre(s)",
+    "Tournament name": "Nombre del torneo",
+    "Match time": "Hora del partido",
+    "Match date": "Fecha del partido",
     "Registration": "Inscripcion",
     "Level": "Nivel",
     "Add Athlete": "Agregar deportista",
+    "Add Programming": "Agregar programacion",
     "Edit Athlete": "Editar deportista",
     "Athletes list": "Lista de Deportistas",
     "Athlete data": "Datos del deportista",
@@ -213,5 +217,9 @@
     "Medical history": "Historia clinica",
     "Programming":"Programacion",
     "Announcements":"Convocatorias",
+    "summoned":"Convocados",
+    "Category":"Categoria",
+    "Home Team":"Equipo local",
+    "Visiting Team":"Equipo visitante",
     "Authorization to a minor": "COMO PADRES DE FAMILIA Y REPRESENTANTES LEGALES DE NUESTRO HIJO/A, AUTORIZAMOS AL CLUB DEPORTIVO JACKELINES FS AFA, PARA QUE LO/A INSCRIBA EN LOS TORNEOS DE FUTBOL DE SALON, FUTBOL SALA Y/0 FESTIVALES EN LA CIUDAD DE BOGOTA, TORNEOS DEPARTAMENTALES Y TORNEOS NACIONALES, PARA QUE PARTICIPE COMO JUGADOR."
 }

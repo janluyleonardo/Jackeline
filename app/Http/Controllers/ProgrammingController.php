@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Student;
+use App\Models\programming;
 use App\Exports\StudentsExport;
 use Maatwebsite\Excel\Facades\Excel;
 
 
-class DirectoriesController extends Controller
+class ProgrammingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,11 +20,8 @@ class DirectoriesController extends Controller
     {
       $texto = trim($request->get('texto'));
       // $students = Student::orderBy('nomAlumno', 'asc')->paginate(10)->get();
-      $students = Student::where('nomAlumno','LIKE','%'.$texto.'%')
-                  ->orWhere('numDocumento','LIKE','%'.$texto.'%')
-                  ->orderBy('id')
-                  ->paginate();
-      return view('directories.index', compact('students','texto'));
+      $programming = programming::orderBy('hora')->paginate(5);
+      return view('programming.index', compact('texto','programming'));
     }
 
     /**
@@ -44,7 +42,24 @@ class DirectoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $newProgramming = new programming();
+      $newProgramming->torneo = $request->torneo;
+      $newProgramming->categoria = $request->categoria;
+      $newProgramming->categoria = $request->categoria;
+      $newProgramming->hora = $request->hora;
+      $newProgramming->eLocal = $request->eLocal;
+      $newProgramming->eVisitante = $request->eVisitante;
+      $newProgramming->fecha = $request->fecha;
+      $newProgramming->cancha = $request->cancha;
+      try {
+        //code...
+        $newProgramming->save();
+      } catch (\Throwable $th) {
+      // throw $th;
+      return redirect()->route('programming.index', $newProgramming)->dangerBanner('no se pudo crear nuevo registro => '.$th);
+      }
+      // $student = Student::create($request->all());
+      return redirect()->route('programming.index', $newProgramming)->banner('Registro creado correctamente.');
     }
 
     /**
@@ -53,9 +68,9 @@ class DirectoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, programming $programming)
     {
-        //
+        return view('Programming.index', compact('programming'));
     }
 
     /**
