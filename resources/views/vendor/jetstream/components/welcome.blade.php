@@ -3,7 +3,7 @@
         <x-jet-application-logo class="block h-12 w-auto inset-x-auto"/>
     </div>
 
-    {{-- <div class="container">
+    <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="mt-3 text-2xl">
@@ -11,9 +11,9 @@
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
 
-    {{-- <div class="container">
+    <div class="container">
       <div class="row">
         <div class="col-md-6">
           <div class="mt-3 text-gray-500">
@@ -91,7 +91,7 @@
           </div>
         </div>
       </div>
-    </div> --}}
+    </div>
 </div>
 
 

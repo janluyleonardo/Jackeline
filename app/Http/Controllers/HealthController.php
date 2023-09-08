@@ -19,16 +19,16 @@ class HealthController extends Controller
     public function index(Request $request)
     {
       $texto = trim($request->get('texto'));
-      $registros = controlHealth::all();
-      $cantMedico = controlHealth::where('examenmedico','>=','2023-01-01')->count();
-      $cantVisual = controlHealth::where('examenvisual','>=','2023-01-01')->count();
-      $cantAuditivo = controlHealth::where('examenauditivo','>=','2023-01-01')->count();
-      $cantOdontologico = controlHealth::where('examenodontologico','>=','2023-01-01')->count();
-      $cantCreDesarrollo = controlHealth::where('cdActual','>=','2023-01-01')->count();
-      $healths = controlHealth::where('nomAlumno','LIKE','%'.$texto.'%')
-                  ->orWhere('numDocumento','LIKE','%'.$texto.'%')
-                  ->orderBy('id')
-                  ->paginate(5);
+      // $registros = controlHealth::all();
+      // $cantMedico = controlHealth::where('examenmedico','>=','2023-01-01')->count();
+      // $cantVisual = controlHealth::where('examenvisual','>=','2023-01-01')->count();
+      // $cantAuditivo = controlHealth::where('examenauditivo','>=','2023-01-01')->count();
+      // $cantOdontologico = controlHealth::where('examenodontologico','>=','2023-01-01')->count();
+      // $cantCreDesarrollo = controlHealth::where('cdActual','>=','2023-01-01')->count();
+      // $healths = controlHealth::where('nomAlumno','LIKE','%'.$texto.'%')
+      //             ->orWhere('numDocumento','LIKE','%'.$texto.'%')
+      //             ->orderBy('id')
+      //             ->paginate(5);
       // $healths = controlHealth::orderBy('id', 'desc')->paginate(5);
       // // $healths = controlHealth::where('nomAlumno','LIKE','%'.$texto.'%')
       // //             ->orWhere('numDocumento','LIKE','%'.$texto.'%')
@@ -94,24 +94,24 @@ class HealthController extends Controller
       $request->merge([
         'nomAlumno' =>($request->nomAlumno),
       ]);
-      $health = controlHealth::findOrFail($id);
-      $health->nomAlumno = $request->nomAlumno;
-      $health->numDocumento = $request->numDocumento;
-      $health->edadAlumno = $request->edadAlumno;
-      $health->examenMedico = $request->examenMedico;
-      $health->examenVisual = $request->examenVisual;
-      $health->examenAuditivo = $request->examenAuditivo;
-      $health->examenOdontologico = $request->examenOdontologico;
-      $health->cdActual = $request->cdActual;
-      $health->cdProximo = $final;
-      $health->cdEntregado = $request->cdEntregado;
-      try {
-      $health->update();
-      $texto = $health->numDocumento;
-      return redirect()->route('health.index', compact('texto','health'))->banner('Registro actualizado correctamente.');
-      } catch (\Throwable $th) {
-        return redirect()->route('health.index')->dangerBanner('Registro duplicado por favor validar el documento del alumno al cual le esta ingresando los datos');
-      }
+      // $health = controlHealth::findOrFail($id);
+      // $health->nomAlumno = $request->nomAlumno;
+      // $health->numDocumento = $request->numDocumento;
+      // $health->edadAlumno = $request->edadAlumno;
+      // $health->examenMedico = $request->examenMedico;
+      // $health->examenVisual = $request->examenVisual;
+      // $health->examenAuditivo = $request->examenAuditivo;
+      // $health->examenOdontologico = $request->examenOdontologico;
+      // $health->cdActual = $request->cdActual;
+      // $health->cdProximo = $final;
+      // $health->cdEntregado = $request->cdEntregado;
+      // try {
+      // $health->update();
+      // $texto = $health->numDocumento;
+      // return redirect()->route('health.index', compact('texto','health'))->banner('Registro actualizado correctamente.');
+      // } catch (\Throwable $th) {
+      //   return redirect()->route('health.index')->dangerBanner('Registro duplicado por favor validar el documento del alumno al cual le esta ingresando los datos');
+      // }
     }
 
     /**

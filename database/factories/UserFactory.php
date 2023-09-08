@@ -24,12 +24,19 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+      /*
+      'name' => $this->faker->name(),
+      'email' => $this->faker->unique()->safeEmail(),
+      'email_verified_at' => now(),
+      'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+      'remember_token' => Str::random(10),
+      **/
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
-            'email_verified_at' => now(),
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-            'remember_token' => Str::random(10),
+          'name' => 'janluy leonardo moreno coronado',
+          'email' => 'janluy.moreno@gmail.com',
+          'email_verified_at' => null,
+          'password' => '$2y$10$HimjyaxVl/74RiZND1G0SezUkAre3WqFp4wp7xPPrKSYwt.lRJlvG',
+          'remember_token' => '$2y$10$HimjyaxVl/74RiZND1G0SezUkAre3WqFp4wp7xPPrKSYwt.lRJlvG',
         ];
     }
 

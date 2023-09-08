@@ -71,7 +71,7 @@
                         <div class="container">
                           <div class="input-group">
                             <div class="col-md-12">
-                              <input class="form-control mt-3" type="file" name="Photo" accept="image/png, image/jpeg" required>
+                              <input class="form-control mt-3" type="file" name="Photo" accept="image/png, image/jpeg" value="{{ old('Photo', $student->Photo) }}" required>
                               <div class="valid-feedback">UserPhoto field is valid!</div>
                               <div class="invalid-feedback">UserPhoto field cannot be blank!</div>
                             </div>
@@ -91,9 +91,9 @@
                                   $masCheck = $student->genero=="Femenino" ? 'checked' : '';
                               @endphp
                               <center>
-                                  <input type="radio" class="btn-check"  name="genero" id="masc" value="Masculino" {{$femCheck}} required>
+                                  <input type="radio" class="btn-check"  name="genero" id="masc" value="Masculino" {{$masCheck}} required>
                                   <label class="btn btn-sm btn-outline-secondary" for="masc"><i><img src="{{asset('images/icono-niño.png')}}" alt="icono-niño" width="45px"></i></label>
-                                  <input type="radio" class="btn-check" name="genero" id="fem" value="Femenino" {{$masCheck}}>
+                                  <input type="radio" class="btn-check" name="genero" id="fem" value="Femenino" {{$femCheck}}>
                                   <label class="btn btn-sm btn-outline-secondary" for="fem"><i><img src="{{asset('images/icono-niña.png')}}" alt="icono-niña" width="45px"></i></label>
                                   <div class="valid-feedback">Gender field is valid!</div>
                                   <div class="invalid-feedback">Gender field cannot be blank!</div>

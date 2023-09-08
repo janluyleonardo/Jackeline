@@ -45,7 +45,7 @@
                               Fecha de {{ __('Registration') }}
                           </div>
                       </div>
-                      <div class="row ">
+                      <div class="row " id="pepito">
                         <div class="col-md-11 encabezado">
                           {{ __('Athlete Information') }}
                         </div>

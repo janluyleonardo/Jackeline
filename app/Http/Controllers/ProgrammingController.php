@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\programming;
 use App\Exports\StudentsExport;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -18,10 +19,19 @@ class ProgrammingController extends Controller
      */
     public function index(Request $request)
     {
+      $categoria = trim($request->get('categoria'));
+      $categoriaB = trim($request->get('categoriaB'));
+
+      $categorias = Student::where('Categoria', 'LIKE', '%' . $categoria . '%')
+      ->where('Categoria', 'LIKE', '%' . $categoriaB . '%')
+      ->orderByDesc('id')->get();
+      // ->paginate(15);
+      // $categoria = DB::table('students')->select('Categoria')->distinct()->get();
+      // return $categoria;
       $texto = trim($request->get('texto'));
       // $students = Student::orderBy('nomAlumno', 'asc')->paginate(10)->get();
       $programming = programming::orderBy('hora')->paginate(5);
-      return view('programming.index', compact('texto','programming'));
+      return view('programming.index', compact('texto','programming','categorias'));
     }
 
     /**

@@ -4,7 +4,7 @@ use App\Http\Controllers\generalController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\ProgrammingController;
-use App\Http\Controllers\HealthController;
+use App\Http\Controllers\nomineeController;
 // use PDF;
 
 /*
@@ -32,9 +32,9 @@ Route::middleware([
     })->name('dashboard');
     Route::resource('/students', StudentsController::class);
     Route::resource('/programming', ProgrammingController::class);
-    Route::resource('/health', HealthController::class);
+    Route::resource('/nominee', nomineeController::class);
     Route::get('/imprimir/{id}', [StudentsController::class, 'imprimir'])->name('imprimir');
-    Route::put('editarRegistro/{id}', [HealthController::class, 'update'])->name('editarRegistro');
+    // Route::put('editarRegistro/{id}', [nomineeController::class, 'update'])->name('editarRegistro');
     Route::get('/export', [ProgrammingController::class, 'export'])->name('export');
 });
 

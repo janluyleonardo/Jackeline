@@ -1,7 +1,7 @@
 <x-app-layout>
   <x-slot name="header">
     <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-      {{ __('Students Directory') }}
+      {{__('Programming')}}
     </h2>
   </x-slot>
 
@@ -39,7 +39,7 @@
                     <div class="form-items">
                       <form action="{{ route('programming.store') }}" method="post" class="requires-validation" novalidate>
                         @csrf
-                        <div class="container cp_oculta" id="Informacion">
+                        <div class="container" id="Informacion">
                           <div class="input-group">
                             <div class="col-md-12">
                               <input class="form-control" type="text" name="torneo" placeholder="{{ __('Tournament name') }}" required>
@@ -53,7 +53,12 @@
                               <div class="valid-feedback">Categoria field is valid!</div>
                               <div class="invalid-feedback">Categoria field cannot be blank!</div>
                             </div>
-                            <div class="col-md-6 mx-auto">
+                            <div class="col-md-2 mx-auto">
+                              <input class="form-control" type="text" name="categoriaB" placeholder="{{ __('Category') }}" required>
+                              <div class="valid-feedback">Categoria field is valid!</div>
+                              <div class="invalid-feedback">Categoria field cannot be blank!</div>
+                            </div>
+                            <div class="col-md-4 mx-auto">
                               <input class="form-control" type="text" name="cancha" placeholder="{{ __('Cancha') }}" required>
                               <div class="valid-feedback">Cancha field is valid!</div>
                               <div class="invalid-feedback">Cancha field cannot be blank!</div>
@@ -81,34 +86,68 @@
                               <div class="invalid-feedback">Fecha field cannot be blank!</div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-3 mx-auto">
-                          <div class="form-button mt-3 mx-auto">
-                              <button id="submit" type="submit" class="sombra btn btn-secondary ">{{__('Add Programming')}}</button>
+                          <div class="input-group">
+                            <div class="col-md-10 mx-auto my-3">
+                              <select name="" id="">
+                                @if ($categorias->isEmpty())
+                                @else
+                                  @foreach ($categorias as $categoria)
+                                  <option value="{{$categoria->nomDeportista}}">{{$categoria->nomDeportista}}</option>
+                                  @endforeach
+                                @endif
+                              </select>
+                              <div class="valid-feedback">Fecha field is valid!</div>
+                              <div class="invalid-feedback">Fecha field cannot be blank!</div>
+                            </div>
                           </div>
                         </div>
+                        {{-- <div class="col-md-3 mx-auto">
+                          <div class="form-button mt-3 mx-auto">
+                              <button style="width:100% !important;" id="submit" type="submit" class="sombra btn btn-secondary ">{{__('Add Programming')}}</button>
+                          </div>
+                        </div> --}}
                       </form>
                     </div>
-
                   </div>
-                  @foreach ($programming as $item)
                   <div class="row mt-1">
-                    <div class="col-md-3 borde-top borde-bottom borde-left b-t-l-r b-b-l-r">
-                      {{ Str::title($item->torneo) }}
-                    </div>
-                    <div class="col-md-3 borde-top borde-bottom">
-                      <div class="col-md-12">{{$item->categoria}}</div>
-                      <div class="col-md-12">{{$item->eLocal}}</div>
-                    </div>
-                    <div class="col-md-3 borde-top borde-bottom">
-                      <div class="col-md-12">{{$item->hora}}</div>
-                      <div class="col-md-12">{{$item->eVisitante}}</div>
-                    </div>
-                    <div class="col-md-3 borde-top borde-bottom borde-right b-t-r-r b-b-r-r">
-                      <div class="col-md-12">{{$item->fecha}}</div>
+                    <div class="col-md-12">
+                      @if ($programming->isEmpty())
+                      @else
+                        <table class="table table-striped table-hover">
+                          <thead>
+                            <th>Torneo</th>
+                            <th>Cancha</th>
+                            <th>Categoria</th>
+                            <th>Rival</th>
+                            <th>Hora</th>
+                            <th>Fecha</th>
+                          </thead>
+                          <tbody class="table-group-divider">
+                          @forelse ($programming as $item)
+                          <tr>
+                            <td>{{$item->torneo}}</td>
+                            <td>{{$item->cancha}}</td>
+                            <td>{{$item->categoria}}</td>
+                            <td>{{$item->eVisitante}}</td>
+                            <td>{{$item->hora}}</td>
+                            <td>{{$item->fecha}}</td>
+                            <td>
+                              <div class="btn-group" role="group" aria-label="Basic example">
+                                <a href="#" class="btn btn-sm btn-info sombra"><i class="bi bi-pencil-square"></i></a>
+                                <a href="#" class="btn btn-sm btn-danger sombra"><i class="bi bi-trash"></i></a>
+                              </div>
+                            </td>
+                          </tr>
+
+                          @empty
+                          vacio
+                          @endforelse
+                          </tbody>
+                          <tfoot></tfoot>
+                        </table>
+                      @endif
                     </div>
                   </div>
-                  @endforeach
                 </div>
               </div>
             </div>

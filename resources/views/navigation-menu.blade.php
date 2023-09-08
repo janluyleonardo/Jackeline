@@ -21,8 +21,8 @@
                     <x-jet-nav-link href="{{ route('programming.index') }}" :active="request()->routeIs('programming.*')">
                         {{ __('Programming') }}
                     </x-jet-nav-link>
-                    <x-jet-nav-link href="{{ route('health.index') }}" :active="request()->routeIs('health.*')">
-                        {{ __('health') }}
+                    <x-jet-nav-link href="{{ route('nominee.index') }}" :active="request()->routeIs('nominee.*')">
+                        {{ __('nominees') }}
                     </x-jet-nav-link>
                 </div>
             </div>
@@ -155,8 +155,8 @@
             <x-jet-responsive-nav-link href="{{ route('programming.index') }}" :active="request()->routeIs('programming.*')">
                 {{ __('Programming') }}
             </x-jet-responsive-nav-link>
-            <x-jet-responsive-nav-link href="{{ route('health.index') }}" :active="request()->routeIs('health.*')">
-                {{ __('health') }}
+            <x-jet-responsive-nav-link href="{{ route('nominee.index') }}" :active="request()->routeIs('nominee.*')">
+                {{ __('nominees') }}
             </x-jet-responsive-nav-link>
         </div>
 
