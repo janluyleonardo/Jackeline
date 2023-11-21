@@ -10,12 +10,12 @@
       <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
         <div class="container">
           <div class="row py-0">
-            <div class="col-md-6 mx-auto py-4">
+            <div class="col-md-12 mx-auto py-4">
               <div class="card bg-light ">
                 <div class="card-header">
                   <div class="row">
                     <div class="col-md-7 py-2">
-                      <strong>{{__('Records in database')}}</strong>
+                      <strong>{{__('Records in database'). count($studentsCount)}}</strong>
                     </div>
                     <div class="col-md-5 flex-row-reverse">
                       <a title="Regresar" href="{{ route('students.create') }}" class="sombra btn btn-secondary">Agregar deportista</a>
@@ -38,6 +38,8 @@
                           <tr>
                             <th>#</th>
                             <th>{{ __('Name') }}</th>
+                            <th>{{ __('DocumentNumber') }}</th>
+                            <th>{{ __('Category') }}</th>
                             <th>{{ __('Actions') }}</th>
                           </tr>
                         </thead>
@@ -47,6 +49,8 @@
                             <tr>
                               <td>{{ $i }}</td>
                               <td>{{ Str::title($student->nomDeportista) }}</td>
+                              <td>{{ $student->numDocumento }}</td>
+                              <td>{{ $student->Categoria }}</td>
                               <td>
                                 <div class="btn-group" role="group" aria-label="Basic example">
                                   <a title="Show" href="#showModal{{$student->id}}" class="sombra btn btn-info" data-bs-toggle="modal">{{__('See')}}</a>

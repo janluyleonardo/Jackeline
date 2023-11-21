@@ -20,8 +20,9 @@ class StudentsController extends Controller
     public function index()
     {
       $mensaje = "";
-      $students = Student::orderBy('id', 'desc')->paginate(10);
-      return view('students.index', compact('students','mensaje'));
+      $students = Student::orderBy('id', 'asc')->paginate(15);
+      $studentsCount = Student::all();
+      return view('students.index', compact('students','mensaje','studentsCount'));
     }
 
     /**
