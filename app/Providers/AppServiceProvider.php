@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
       Blade::stringable(fn (Carbon $date) => $date->format('Y/m/d'));
 
       if(config('app.env') === 'production'){
-        URL::forceSceheme('https');
+        URL::forceScheme('https');
       }
     }
 }
