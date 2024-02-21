@@ -24,7 +24,7 @@ class nomineeController extends Controller
             ->join('programmings', 'students.Categoria', '=', 'programmings.categoria')->get();
             // ->join('orders', 'users.id', '=', 'orders.user_id');
 
-      return $programming;
+      // return $programming;
       // $categoria = Student::select('Categoria')->distinct()->get();
       // $student_2008 = Student::where('Categoria','2008')->get();
       // return $categoria;

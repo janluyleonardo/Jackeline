@@ -38,24 +38,24 @@
     </div>
   </header>
 
-  <table width="100%" class="tabla-datos" border="1">
+  <table width="100%" class="tabla-datos" border="0">
     <tbody>
       <tr>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Fecha inscripcion:</b></td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;" colspan="2"><b>Nombre completo deportista</b></td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;" colspan="2"><b>Categoria:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Fecha inscripcion:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;" colspan="2"><b>Nombre completo deportista</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;" colspan="2"><b>Categoria:</b></td>
       </tr>
       <tr>
-        <td align="center">{{ $student->fechaInscripcion}}</td>
+        <td align="center">{{ \Carbon\Carbon::parse(strtotime($student->fechaInscripcion))->formatLocalized('%d-%m-%Y') }}</td>
         <td colspan="2" align="center"><b>{{$student->nomDeportista}}</b></td>
         <td colspan="2" align="center">{{ $student->Categoria}}</td>
       </tr>
       <tr>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Numero documento:</b></td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Genero:</b></td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Peso:</b></td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Estatura:</b></td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>RH:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Numero documento:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Genero:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Peso:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Estatura:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>RH:</b></td>
       </tr>
       <tr>
         <td align="center">{{ $student->numDocumento}}</td>
@@ -65,24 +65,24 @@
         <td align="center">{{ $student->RHDeportista}}</td>
       </tr>
       <tr>
-        <td rowspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Fecha de nacimiento:</b> </td>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Lugar de nacimiento:</b> </td>
-        <td colspan="2" rowspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>EPS:</b> </td>
+        <td rowspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Fecha de nacimiento:</b> </td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Lugar de nacimiento:</b> </td>
+        <td colspan="2" rowspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>EPS:</b> </td>
       </tr>
       <tr>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Ciudad:</b> </td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Departamento:</b> </td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Ciudad:</b> </td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Departamento:</b> </td>
       </tr>
       <tr>
-        <td align="center">{{ $student->fechaNacimiento}}</td>
+        <td align="center">{{ \Carbon\Carbon::parse(strtotime($student->fechaNacimiento))->formatLocalized('%d-%m-%Y') }}</td>
         <td align="center">{{ $student->Ciudad}}</td>
         <td align="center">{{ $student->Departamento}}</td>
         <td align="center" colspan="2">{{ $student->EPS}}</td>
       </tr>
       <tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Direccion:</b></td>
-        <td style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Barrio:</b></td>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Localidad:</b></td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Direccion:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Barrio:</b></td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Localidad:</b></td>
       </tr>
       <tr>
         <td align="center" colspan="2">{{ $student->direccionDeportista}}</td>
@@ -90,37 +90,32 @@
         <td align="center" colspan="2">{{ $student->localidad}}</td>
       </tr>
       <tr>
-        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Telefonos de contacto:</b></td>
+        <td colspan="3" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Telefonos de contacto:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Colegio:</b></td>
+        <td style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Curso:</b></td>
       </tr>
       <tr>
         <td align="center">{{ $student->numTelefonico}}</td>
         <td align="center">{{ $student->numTelefonicoUno}}</td>
         <td align="center">{{ $student->numTelefonicoDos}}</td>
-      </tr>
-      <tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Colegio:</b></td>
-        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Curso:</b></td>
-      </tr>
-      <tr>
-        <td align="center" colspan="2">{{ $student->Colegio}}</td>
+        <td align="center">{{ $student->Colegio}}</td>
         <td align="center">{{ $student->Curso}}</td>
       </tr>
-
       <tr>
-        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS MADRE</b></td>
+        <td colspan="5"style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>DATOS MADRE</b></td>
       </tr>
       <tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Nombre</b></td>
-        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Direccion</b></td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Nombre</b></td>
+        <td colspan="3" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Direccion</b></td>
       </tr>
       <tr>
         <td align="center" colspan="2">{{ $student->nombreMama}}</td>
         <td align="center" colspan="3">{{ $student->direccionMama}}</td>
       </tr>
       <tr>
-        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Documento</b></td>
-        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Telefono</b></td>
-        <td colspan="4" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Correo</b></td>
+        <td colspan="1" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Documento</b></td>
+        <td colspan="1" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Telefono</b></td>
+        <td colspan="4" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Correo</b></td>
       </tr>
       <tr>
         <td align="center" colspan="1">{{ $student->documentoMama}}</td>
@@ -129,20 +124,20 @@
       </tr>
 
       <tr>
-        <td colspan="5"style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>DATOS PADRE</b></td>
+        <td colspan="5"style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>DATOS PADRE</b></td>
       </tr>
       <tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Nombre</b></td>
-        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Direccion</b></td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Nombre</b></td>
+        <td colspan="3" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Direccion</b></td>
       </tr>
       <tr>
         <td align="center" colspan="2">{{ $student->nombrePapa}}</td>
         <td align="center" colspan="3">{{ $student->direccionPapa}}</td>
       </tr>
       <tr>
-        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Documento</b></td>
-        <td colspan="1" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Telefono</b></td>
-        <td colspan="4" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Correo</b></td>
+        <td colspan="1" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Documento</b></td>
+        <td colspan="1" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Telefono</b></td>
+        <td colspan="4" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Correo</b></td>
       </tr>
       <tr>
         <td align="center" colspan="1">{{ $student->documentoPapa}}</td>
@@ -150,10 +145,10 @@
         <td align="center" colspan="4">{{ $student->correoPapa}}</td>
       </tr>
       <tr>
-        <td colspan="5" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>HISTORIA CLINICA</b></td>
+        <td colspan="5" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>HISTORIA CLINICA</b></td>
       </tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Enfermedades que padece:</b> </td>
-        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Usa algun medicamento:</b> </td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Enfermedades que padece:</b> </td>
+        <td colspan="3" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Usa algun medicamento:</b> </td>
       <tr>
       </tr>
       <tr>
@@ -161,23 +156,23 @@
         <td align="center" colspan="3">{{ $student->medicamento}}</td>
       </tr>
       <tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene alguna lesion congenita:</b> </td>
-        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene cirugias:</b> </td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Tiene alguna lesion congenita:</b> </td>
+        <td colspan="3" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Tiene cirugias:</b> </td>
       </tr>
       <tr>
         <td align="center" colspan="2">{{ $student->lesion}}</td>
         <td align="center" colspan="3">{{ $student->Cirugia}}</td>
       </tr>
       <tr>
-        <td colspan="2" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Algo que le impida practicar algun deporte:</b> </td>
-        <td colspan="3" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>Tiene alguna lesion oseo muscular:</b> </td>
+        <td colspan="2" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Algo que le impida practicar algun deporte:</b> </td>
+        <td colspan="3" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>Tiene alguna lesion oseo muscular:</b> </td>
       </tr>
       <tr>
         <td align="center" colspan="2">{{ $student->impedimento}}</td>
         <td align="center" colspan="3">{{ $student->lesionOM}}</td>
       </tr>
       <tr>
-        <td colspan="5" style="background-color:rgba(156, 194, 229,0.7);text-align:center;"><b>AUTORIZACION PARA MENORES DE 18 AÑOS</b></td>
+        <td colspan="5" style="background-color:rgba(1, 142, 203,0.7);text-align:center;"><b>AUTORIZACION PARA MENORES DE 18 AÑOS</b></td>
       </tr>
       <tr>
         <td align="justify" style="font-size:12px" colspan="5">{{ __('Authorization to a minor') }}</td>

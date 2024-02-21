@@ -10,11 +10,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
         <!-- favicon -->
-        <link rel="shortcut icon" href="{{ secure_asset('favicon.ico?v='.now()->format('H.s')) }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico?v='.now()->format('H.s')) }}" type="image/x-icon">
 
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ secure_asset('css/welcome.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
+        {{-- <link rel="stylesheet" href="{{ secure_asset('css/welcome.css?v='.now()->format('H.s')) }}"> --}}
+        <link rel="stylesheet" href="{{ asset('css/welcome.css?v='.now()->format('H.s')) }}">
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
@@ -30,9 +31,9 @@
                         @else
                             <a href="{{ route('login') }}" class="mx-3 btn btn-secondary btn-sm">{{ __('Login') }}</a>
 
-                            @if (Route::has('register'))
+                            {{-- @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="mx-3 btn btn-secondary btn-sm">{{ __('Register') }}</a>
-                            @endif
+                            @endif --}}
                         @endauth
                     @endif
                 </div>

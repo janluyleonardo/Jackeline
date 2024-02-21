@@ -110,7 +110,7 @@ class StudentsController extends Controller
     {
       $student = Student::findOrFail($id);
       $pdf = PDF::loadView('students.pdf', compact('student'));
-      return $pdf->download($student->nomDeportista.'.pdf');
+      return $pdf->stream($student->nomDeportista.'.pdf');
     }
 
     /**
