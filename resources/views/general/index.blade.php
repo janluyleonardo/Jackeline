@@ -7,7 +7,8 @@
         </div>
         <div class="col-md-11">
           <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            <x-navbarMain/>
+            <x-navbar-main/>
+            {{-- aca estamos invocand navbar main --}}
           </h2>
         </div>
       </div>
