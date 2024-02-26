@@ -16,6 +16,7 @@ class programming extends Model
    */
     protected $fillable = [
       'torneo',
+      'cancha',
       'categoria',
       'eLocal',
       'eVisitante',

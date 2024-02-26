@@ -51,26 +51,14 @@ class ProgrammingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, programming $programming)
     {
-      $newProgramming = new programming();
-      $newProgramming->torneo = $request->torneo;
-      $newProgramming->categoria = $request->categoria;
-      $newProgramming->categoria = $request->categoria;
-      $newProgramming->hora = $request->hora;
-      $newProgramming->eLocal = $request->eLocal;
-      $newProgramming->eVisitante = $request->eVisitante;
-      $newProgramming->fecha = $request->fecha;
-      $newProgramming->cancha = $request->cancha;
       try {
-        //code...
-        $newProgramming->save();
+      $programming = programming::create($request->all());
+      return redirect()->route('programming.index', $programming)->banner('Registro creado correctamente.');
       } catch (\Throwable $th) {
-      // throw $th;
-      return redirect()->route('programming.index', $newProgramming)->dangerBanner('no se pudo crear nuevo registro => '.$th);
+        return redirect()->route('programming.index', $programming)->dangerBanner('no se pudo crear nuevo registro => '.$th->getMessage());
       }
-      // $student = Student::create($request->all());
-      return redirect()->route('programming.index', $newProgramming)->banner('Registro creado correctamente.');
     }
 
     /**
@@ -81,7 +69,7 @@ class ProgrammingController extends Controller
      */
     public function show(Request $request, programming $programming)
     {
-        return view('Programming.index', compact('programming'));
+      return view('Programming.index', compact('programming'));
     }
 
     /**
@@ -104,7 +92,13 @@ class ProgrammingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $programming = programming::findOrFail($id);
+      try {
+        $programming->update($request->all());
+      } catch (\Throwable $th) {
+        return redirect()->route('programming.index', $programming)->dangerBanner('no se pudo actualizar registro por que => '.$th->getMessage());
+      }
+      return redirect()->route('programming.index', $programming)->banner('Registro actualizar correctamente.');
     }
 
     /**
@@ -115,7 +109,13 @@ class ProgrammingController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $programming = programming::findOrFail($id);
+      try {
+        $programming->delete();
+      } catch (\Throwable $th) {
+        return redirect()->route('programming.index', $programming)->dangerBanner('no se pudo eliminar registro por que => '.$th->getMessage());
+      }
+      return redirect()->route('programming.index', $programming)->banner('Registro eliminado correctamente.');
     }
     /**
      * Remove the specified resource from storage.
