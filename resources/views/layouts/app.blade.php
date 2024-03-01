@@ -22,6 +22,7 @@
         <link rel="stylesheet" href="{{ secure_asset('css/input.css?v='.now()->format('H.s')) }}">
         <link rel="stylesheet" href="{{ secure_asset('css/modals.css?v='.now()->format('H.s')) }}">
         <link rel="stylesheet" href="{{ secure_asset('css/directorios.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/dashboard.css?v='.now()->format('H.s')) }}">
         <!-- icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <!-- Scripts -->
