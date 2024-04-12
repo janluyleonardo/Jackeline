@@ -35,7 +35,7 @@ Route::middleware([
     Route::resource('/nominee', nomineeController::class);
     Route::get('/imprimir/{id}', [StudentsController::class, 'imprimir'])->name('imprimir');
     // Route::put('editarRegistro/{id}', [nomineeController::class, 'update'])->name('editarRegistro');
-    Route::get('/export', [ProgrammingController::class, 'export'])->name('export');
+    Route::get('/export', [StudentsController::class, 'export'])->name('export');
 });
 
 Route::get('/index', [generalController::class, 'index'])->name('index');

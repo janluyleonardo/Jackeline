@@ -17,7 +17,8 @@ class CreateProgrammingsTable extends Migration
             $table->id();
             $table->string('torneo');
             $table->string('cancha');
-            $table->string('categoria');
+            $table->string('categoriaUno');
+            $table->string('categoriaDos');
             $table->string('eLocal');
             $table->string('eVisitante');
             $table->string('hora');

@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\programming;
-use App\Exports\StudentsExport;
 use Illuminate\Support\Facades\DB;
-use Maatwebsite\Excel\Facades\Excel;
-
 
 class ProgrammingController extends Controller
 {
@@ -116,16 +113,5 @@ class ProgrammingController extends Controller
         return redirect()->route('programming.index', $programming)->dangerBanner('no se pudo eliminar registro por que => '.$th->getMessage());
       }
       return redirect()->route('programming.index', $programming)->banner('Registro eliminado correctamente.');
-    }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function export()
-    {
-      return Excel::download(new StudentsExport, 'Registros.xlsx');
-      return view('Registrations.index');
     }
 }

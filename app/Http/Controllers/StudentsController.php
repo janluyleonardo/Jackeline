@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreStudent;
-use App\Models\stdDeleted;
 use App\Models\Student;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\StudentsExport;
+
 use PDF;
 
 class StudentsController extends Controller
@@ -20,7 +19,7 @@ class StudentsController extends Controller
     public function index()
     {
       $mensaje = "";
-      $students = Student::orderBy('id', 'asc')->paginate(15);
+      $students = Student::orderBy('id', 'DESC')->paginate(15);
       $studentsCount = Student::all();
       return view('students.index', compact('students','mensaje','studentsCount'));
     }
@@ -212,5 +211,14 @@ class StudentsController extends Controller
       return $student;
       // return redirect()->route('students.index', $student);
       return redirect()->route('students.index', compact('student'))->banner('Registro eliminado correctamente.');
+    }
+
+    public function export()
+    {
+      try {
+        return Excel::download(new StudentsExport, 'Registros.xlsx');
+      } catch (\Throwable $th) {
+        return redirect()->route('students.show')->bannerdanger('no se pudo generar registro excel => '.$th);
+      }
     }
 }
