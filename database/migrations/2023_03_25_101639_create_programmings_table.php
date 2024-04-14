@@ -23,6 +23,7 @@ class CreateProgrammingsTable extends Migration
             $table->string('eVisitante');
             $table->string('hora');
             $table->date('fecha');
+            $table->longText('jugadores_convocados');
             $table->timestamps();
         });
     }

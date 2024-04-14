@@ -23,5 +23,6 @@ class programming extends Model
       'eVisitante',
       'hora',
       'fecha',
+      'jugadores_convocados',
     ];
 }

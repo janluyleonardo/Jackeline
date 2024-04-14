@@ -16,20 +16,14 @@ class ProgrammingController extends Controller
      */
     public function index(Request $request)
     {
-      // return "index de programings";
-      $categoria = trim($request->get('categoria'));
-      $categoriaB = trim($request->get('categoriaB'));
 
-      $categorias = Student::where('Categoria', 'LIKE', '%' . $categoria . '%')
-      ->where('Categoria', 'LIKE', '%' . $categoriaB . '%')
-      ->orderByDesc('id')->get();
-      // ->paginate(15);
-      // $categoria = DB::table('students')->select('Categoria')->distinct()->get();
-      // return $categoria;
+      $studentList = Student::select('nomDeportista')
+      ->orderByDesc('id')
+      ->get();
       $texto = trim($request->get('texto'));
       // $students = Student::orderBy('nomAlumno', 'asc')->paginate(10)->get();
       $programming = programming::orderBy('hora')->paginate(5);
-      return view('Programming.index', compact('texto','programming','categorias'));
+      return view('Programming.index', compact('texto','programming','studentList'));
     }
 
     /**
@@ -50,8 +44,19 @@ class ProgrammingController extends Controller
      */
     public function store(Request $request, programming $programming)
     {
+      $newProgramming = new Programming();
+      $newProgramming->torneo = $request->torneo;
+      $newProgramming->cancha = $request->cancha;
+      $newProgramming->categoriaUno = $request->categoriaUno;
+      $newProgramming->categoriaDos = $request->categoriaDos;
+      $newProgramming->eLocal = $request->eLocal;
+      $newProgramming->eVisitante = $request->eVisitante;
+      $newProgramming->hora = $request->hora;
+      $newProgramming->fecha = $request->fecha;
+      $newProgramming->jugadores_convocados = implode(',',$request->jugadores_convocados);
+
       try {
-      $programming = programming::create($request->all());
+      $newProgramming->save();
       return redirect()->route('programming.index', $programming)->banner('Registro creado correctamente.');
       } catch (\Throwable $th) {
         return redirect()->route('programming.index', $programming)->dangerBanner('no se pudo crear nuevo registro => '.$th->getMessage());
