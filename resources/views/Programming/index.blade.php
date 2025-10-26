@@ -44,12 +44,12 @@
                     <div class="invalid-feedback">Cancha field cannot be blank!</div>
                   </div>
                   <div class="col-md-2 col-sm-2 col-lg-2 mx-auto">
-                    <input class="form-control form-control-sm" type="text" name="categoriaUno" placeholder="{{ __('Category') }} uno" value="{{ old('categoria') }}" required>
+                    <input class="form-control form-control-sm" type="text" name="categoriaUno" placeholder="{{ __('Categoría') }} uno" value="{{ old('categoriaUno') }}" required>
                     <div class="valid-feedback">Categoria field is valid!</div>
                     <div class="invalid-feedback">Categoria field cannot be blank!</div>
                   </div>
                   <div class="col-md-2 col-sm-2 col-lg-2 mx-auto">
-                    <input class="form-control form-control-sm" type="text" name="categoriaDos" placeholder="{{ __('Category') }} dos" value="{{ old('categoria') }}" required>
+                    <input class="form-control form-control-sm" type="text" name="categoriaDos" placeholder="{{ __('Categoría') }} Dos" value="{{ old('categoriaDos') }}" required>
                     <div class="valid-feedback">Categoria field is valid!</div>
                     <div class="invalid-feedback">Categoria field cannot be blank!</div>
                   </div>
@@ -73,13 +73,28 @@
                     <div class="valid-feedback">Fecha field is valid!</div>
                     <div class="invalid-feedback">Fecha field cannot be blank!</div>
                   </div>
-                  <div class="col-md-3 mx-auto">
+                  <!-- Campo para la lista de jugadores convocados -->
+                  <div class="col-md-6 col-sm-6 col-lg-6 mx-auto mt-2 text-center">
+                    <label for="jugadores_convocados">{{ __('Select players to call in this match') }}</label>
+                    <select class="form-control select-buscar form-control-sm text-center" name="jugadores_convocados[]" multiple required>
+                      <option value="" hidden selected>Selecciona tipo de documento</option>
+                        @foreach($studentList as $student)
+                          <option value="{{ $student->nomDeportista }}">{{ $student->nomDeportista }}</option>
+                        @endforeach
+                      </select>
+                    <div class="valid-feedback">Jugadores convocados seleccionados correctamente.</div>
+                    <div class="invalid-feedback">Por favor, selecciona al menos un jugador convocado.</div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-3 col-sm-3 col-lg-3 mx-auto">
                     <div class="form-button mt-3 mx-auto">
                       <button style="width:100% !important;" id="submit" type="submit" class="sombra btn btn-secondary ">{{__('Add Programming')}}</button>
                     </div>
                   </div>
                 </div>
               </form>
+
               <div class="row mt-1">
                 <div class="col-md-12">
                   @if ($programming->isEmpty())
