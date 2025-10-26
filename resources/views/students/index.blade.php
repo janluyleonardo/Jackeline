@@ -14,10 +14,13 @@
               <div class="card bg-light ">
                 <div class="card-header">
                   <div class="row">
-                    <div class="col-md-7 py-2">
+                    <div class="col-md-4 py-2">
                       <strong>{{__('Records in database'). count($studentsCount)}}</strong>
                     </div>
-                    <div class="col-md-5 flex-row-reverse">
+                      <div class="col-md-4 my-auto">
+                        <a class="sombra btn btn-success ml-4" width="50%" href="{{ route('export') }}">{{__('Export Directory')}}</a>
+                      </div>
+                    <div class="col-md-4 flex-row-reverse">
                       <a title="Regresar" href="{{ route('students.create') }}" class="sombra btn btn-secondary">Agregar deportista</a>
                     </div>
                   </div>

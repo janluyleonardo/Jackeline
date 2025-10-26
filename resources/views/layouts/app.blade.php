@@ -6,7 +6,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <!--favicon-->
-        <link rel="shortcut icon" href="{{ secure_asset('favicon.ico?v='.now()->format('H.s')) }}" type="image/x-icon">
+        <link rel="shortcut icon" href="{{ asset('favicon.ico?v='.now()->format('H.s')) }}" type="image/x-icon">
 
         <title>{{ config('app.name', 'Jackeline FS') }}</title>
 
@@ -16,13 +16,13 @@
         <!-- Styles -->
         @livewireStyles
         <!-- Styles -->
-        <link rel="stylesheet" href="{{ secure_asset('css/app.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ secure_asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ secure_asset('css/formulario.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ secure_asset('css/input.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ secure_asset('css/modals.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ secure_asset('css/directorios.css?v='.now()->format('H.s')) }}">
-        <link rel="stylesheet" href="{{ secure_asset('css/dashboard.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/formulario.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/input.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/modals.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/directorios.css?v='.now()->format('H.s')) }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard.css?v='.now()->format('H.s')) }}">
         <!-- icons -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
         <!-- Scripts -->
@@ -52,10 +52,10 @@
         @stack('modals')
 
         @livewireScripts
-        <script src="{{ secure_asset('js/app.js') }}"></script>
-        <script src="{{ secure_asset('js/formulario.js') }}"></script>
-        <script src="{{ secure_asset('js/bootstrap.js') }}"></script>
-        <script src="{{ secure_asset('js/bootstrap.bundle.js') }}"></script>
+        <script src="{{ asset('js/app.js') }}"></script>
+        {{-- <script src="{{ asset('js/formulario.js') }}"></script> --}}
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.bundle.js') }}"></script>
         {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-steps/1.1.0/jquery.steps.min.js"></script> --}}
     </body>
 </html>
