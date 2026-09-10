@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <script>
+        (function () {
+            try {
+                const storedTheme = localStorage.getItem('msp-theme');
+                const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                const theme = storedTheme ? storedTheme : (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', theme);
+            } catch (error) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        })();
+    </script>
+
     <title>{{ config('app.name', 'Jackeline F.S.') }}</title>
 
     <!-- Favicon -->
@@ -28,10 +41,140 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Dynamic Club Colors -->
+    @php
+        $clubPrimary = auth()->check() && auth()->user()->club && auth()->user()->club->primary_color
+            ? auth()->user()->club->primary_color
+            : (env('CLUB_COLOR_PRIMARY') ?: 'rgb(' . trim(env('CLUB_COLOR_PRIMARY_RGB', '0, 74, 173')) . ')');
+
+        $clubSecondary = auth()->check() && auth()->user()->club && auth()->user()->club->secondary_color
+            ? auth()->user()->club->secondary_color
+            : (env('CLUB_COLOR_SECONDARY') ?: 'rgb(' . trim(env('CLUB_COLOR_SECONDARY_RGB', '255, 222, 89')) . ')');
+    @endphp
+
     <style>
         :root {
-            --club-primary: rgb({{ env('CLUB_COLOR_PRIMARY_RGB', '0, 74, 173') }});
-            --club-secondary: rgb({{ env('CLUB_COLOR_SECONDARY_RGB', '255, 222, 89') }});
+            --club-primary: {{ $clubPrimary }};
+            --club-secondary: {{ $clubSecondary }};
+        }
+
+        html[data-theme='dark'] {
+            color-scheme: dark;
+        }
+
+        html[data-theme='dark'] body {
+            background-color: #0b1220;
+            color: #e5e7eb;
+        }
+
+        html[data-theme='dark'] .bg-white,
+        html[data-theme='dark'] .bg-gray-50,
+        html[data-theme='dark'] .bg-gray-100,
+        html[data-theme='dark'] .bg-gray-200,
+        html[data-theme='dark'] .bg-indigo-50,
+        html[data-theme='dark'] .bg-slate-50,
+        html[data-theme='dark'] .bg-slate-100,
+        html[data-theme='dark'] .bg-slate-200,
+        html[data-theme='dark'] .bg-slate-300,
+        html[data-theme='dark'] .bg-zinc-50,
+        html[data-theme='dark'] .bg-neutral-50,
+        html[data-theme='dark'] [class*='bg-gray-'],
+        html[data-theme='dark'] [class*='bg-slate-'],
+        html[data-theme='dark'] [class*='bg-zinc-'],
+        html[data-theme='dark'] [class*='bg-neutral-'] {
+            background-color: #111827 !important;
+        }
+
+        html[data-theme='dark'] .border-gray-100,
+        html[data-theme='dark'] .border-gray-200,
+        html[data-theme='dark'] .border-gray-300,
+        html[data-theme='dark'] .border-slate-200,
+        html[data-theme='dark'] .border-slate-300,
+        html[data-theme='dark'] .border-slate-400,
+        html[data-theme='dark'] .border-slate-500,
+        html[data-theme='dark'] [class*='border-gray-'],
+        html[data-theme='dark'] [class*='border-slate-'],
+        html[data-theme='dark'] [class*='border-zinc-'],
+        html[data-theme='dark'] [class*='border-neutral-'] {
+            border-color: rgba(148, 163, 184, 0.35) !important;
+        }
+
+        html[data-theme='dark'] [class*='text-gray-'],
+        html[data-theme='dark'] [class*='text-slate-'],
+        html[data-theme='dark'] [class*='text-zinc-'],
+        html[data-theme='dark'] [class*='text-neutral-'] {
+            color: #e2e8f0 !important;
+        }
+
+        html[data-theme='dark'] input,
+        html[data-theme='dark'] textarea,
+        html[data-theme='dark'] select {
+            background-color: #0f172a !important;
+            color: #f8fafc !important;
+            border-color: rgba(148, 163, 184, 0.35) !important;
+        }
+
+        html[data-theme='dark'] input::placeholder,
+        html[data-theme='dark'] textarea::placeholder {
+            color: #94a3b8 !important;
+        }
+
+        html[data-theme='dark'] .shadow-sm,
+        html[data-theme='dark'] .shadow-md,
+        html[data-theme='dark'] .shadow-lg,
+        html[data-theme='dark'] .shadow-xl {
+            box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.12) !important;
+        }
+
+        html[data-theme='dark'] nav {
+            background-color: #0f172a !important;
+            border-color: rgba(148, 163, 184, 0.35) !important;
+        }
+
+        html[data-theme='dark'] nav .text-gray-900,
+        html[data-theme='dark'] nav .text-gray-800,
+        html[data-theme='dark'] nav .text-gray-700,
+        html[data-theme='dark'] nav .text-gray-600,
+        html[data-theme='dark'] nav .text-gray-500,
+        html[data-theme='dark'] nav .text-gray-400,
+        html[data-theme='dark'] nav .text-gray-300 {
+            color: #f8fafc !important;
+        }
+
+        html[data-theme='dark'] nav .text-gray-500,
+        html[data-theme='dark'] nav .text-gray-400 {
+            color: #cbd5e1 !important;
+        }
+
+        .theme-toggle-button {
+            background: rgba(255, 255, 255, 0.92);
+            border-color: rgba(148, 163, 184, 0.35);
+            color: #475569;
+        }
+
+        .theme-toggle-button:hover {
+            color: #0f172a;
+        }
+
+        .theme-version-badge {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1f2937;
+            border-color: rgba(148, 163, 184, 0.35);
+        }
+
+        html[data-theme='dark'] .theme-toggle-button {
+            background: rgba(15, 23, 42, 0.85);
+            border-color: rgba(148, 163, 184, 0.4);
+            color: #f8fafc;
+        }
+
+        html[data-theme='dark'] .theme-toggle-button:hover {
+            color: #ffffff;
+        }
+
+        html[data-theme='dark'] .theme-version-badge {
+            background: rgba(15, 23, 42, 0.85);
+            color: #f8fafc;
+            border-color: rgba(148, 163, 184, 0.4);
         }
 
         [x-cloak] {
@@ -138,7 +281,17 @@
                         {{ $header }}
                     </div>
                     <div class="flex items-center gap-2">
-                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-800 border border-gray-200">
+                        <button
+                            id="theme-toggle"
+                            type="button"
+                            class="theme-toggle-button inline-flex items-center justify-center h-8 w-8 rounded-full border transition-colors"
+                            aria-label="Cambiar tema"
+                            title="Cambiar tema"
+                        >
+                            <i id="theme-toggle-icon" class="bi bi-moon-stars-fill text-sm"></i>
+                        </button>
+
+                        <span class="theme-version-badge inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold border">
                             v{{ config('app.version') }}
                         </span>
                     </div>
@@ -150,6 +303,39 @@
             {{ $slot }}
         </main>
     </div>
+
+    <script>
+        (function () {
+            const root = document.documentElement;
+            const button = document.getElementById('theme-toggle');
+            const icon = document.getElementById('theme-toggle-icon');
+
+            function applyTheme(theme) {
+                root.setAttribute('data-theme', theme);
+                localStorage.setItem('msp-theme', theme);
+
+                if (icon) {
+                    icon.classList.remove('bi-moon-stars-fill', 'bi-sun-fill');
+                    icon.classList.add(theme === 'dark' ? 'bi-sun-fill' : 'bi-moon-stars-fill');
+                }
+
+                if (button) {
+                    button.setAttribute('aria-label', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+                    button.setAttribute('title', theme === 'dark' ? 'Cambiar a tema claro' : 'Cambiar a tema oscuro');
+                }
+            }
+
+            const initialTheme = root.getAttribute('data-theme') || 'light';
+            applyTheme(initialTheme);
+
+            if (button) {
+                button.addEventListener('click', function () {
+                    const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+                    applyTheme(nextTheme);
+                });
+            }
+        })();
+    </script>
 
     <!-- ── Toast Notification System ──────────────────────────────── -->
     <div id="toast-container" x-data="{
