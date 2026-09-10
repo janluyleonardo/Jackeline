@@ -77,11 +77,53 @@
         html[data-theme='dark'] .bg-slate-300,
         html[data-theme='dark'] .bg-zinc-50,
         html[data-theme='dark'] .bg-neutral-50,
+        html[data-theme='dark'] [class*='bg-white'],
         html[data-theme='dark'] [class*='bg-gray-'],
         html[data-theme='dark'] [class*='bg-slate-'],
         html[data-theme='dark'] [class*='bg-zinc-'],
         html[data-theme='dark'] [class*='bg-neutral-'] {
             background-color: #111827 !important;
+        }
+
+        html[data-theme='dark'] .text-gray-950,
+        html[data-theme='dark'] .text-gray-900,
+        html[data-theme='dark'] .text-gray-800,
+        html[data-theme='dark'] .text-gray-700,
+        html[data-theme='dark'] .text-gray-600,
+        html[data-theme='dark'] .text-gray-500,
+        html[data-theme='dark'] .text-gray-400,
+        html[data-theme='dark'] .text-slate-900,
+        html[data-theme='dark'] .text-slate-800,
+        html[data-theme='dark'] .text-slate-700,
+        html[data-theme='dark'] .text-slate-600,
+        html[data-theme='dark'] .text-slate-500,
+        html[data-theme='dark'] .text-slate-400,
+        html[data-theme='dark'] .text-slate-300,
+        html[data-theme='dark'] .text-zinc-900,
+        html[data-theme='dark'] .text-zinc-800,
+        html[data-theme='dark'] .text-zinc-700,
+        html[data-theme='dark'] .text-zinc-600,
+        html[data-theme='dark'] .text-zinc-500,
+        html[data-theme='dark'] .text-zinc-400,
+        html[data-theme='dark'] .text-neutral-900,
+        html[data-theme='dark'] .text-neutral-800,
+        html[data-theme='dark'] .text-neutral-700,
+        html[data-theme='dark'] .text-neutral-600,
+        html[data-theme='dark'] .text-neutral-500,
+        html[data-theme='dark'] .text-neutral-400 {
+            color: #f8fafc !important;
+        }
+
+        html[data-theme='dark'] .text-gray-500,
+        html[data-theme='dark'] .text-gray-400,
+        html[data-theme='dark'] .text-slate-500,
+        html[data-theme='dark'] .text-slate-400,
+        html[data-theme='dark'] .text-slate-300,
+        html[data-theme='dark'] .text-zinc-500,
+        html[data-theme='dark'] .text-zinc-400,
+        html[data-theme='dark'] .text-neutral-500,
+        html[data-theme='dark'] .text-neutral-400 {
+            color: #cbd5e1 !important;
         }
 
         html[data-theme='dark'] .border-gray-100,
@@ -96,13 +138,6 @@
         html[data-theme='dark'] [class*='border-zinc-'],
         html[data-theme='dark'] [class*='border-neutral-'] {
             border-color: rgba(148, 163, 184, 0.35) !important;
-        }
-
-        html[data-theme='dark'] [class*='text-gray-'],
-        html[data-theme='dark'] [class*='text-slate-'],
-        html[data-theme='dark'] [class*='text-zinc-'],
-        html[data-theme='dark'] [class*='text-neutral-'] {
-            color: #e2e8f0 !important;
         }
 
         html[data-theme='dark'] input,
@@ -128,6 +163,15 @@
         html[data-theme='dark'] nav {
             background-color: #0f172a !important;
             border-color: rgba(148, 163, 184, 0.35) !important;
+        }
+
+        html[data-theme='dark'] header {
+            background-color: #0f172a !important;
+            border-color: rgba(148, 163, 184, 0.35) !important;
+        }
+
+        html[data-theme='dark'] header * {
+            color: #f8fafc !important;
         }
 
         html[data-theme='dark'] nav .text-gray-900,
