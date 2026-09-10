@@ -129,14 +129,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::post('payments/upload-voucher', [PaymentController::class, 'uploadVoucher'])->name('payments.upload_voucher');
         });
 
-        // ── Tesorería e Inventario: Admin y SubAdmin (crear / editar / ver) ─────
+        // ── Inventario: Admin y SubAdmin (crear / editar / ver) ───────────────
         Route::middleware(['role:Admin|SubAdmin'])->group(function () {
-            Route::middleware(['module:financial'])->group(function () {
+            Route::middleware(['module:inventory'])->group(function () {
                 Route::get('products/template', [ProductController::class, 'downloadTemplate'])->name('products.template');
                 Route::post('products/import', [ProductController::class, 'import'])->name('products.import');
                 Route::resource('products', ProductController::class)->except(['destroy']);
+            });
+        });
 
-                // Tesorería
+        // Productos: eliminar (solo Admin)
+        Route::middleware(['role:Admin', 'module:inventory'])->group(function () {
+            Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+        });
+
+        // ── Tesorería: Admin y SubAdmin (crear / editar / ver) ────────────────
+        Route::middleware(['role:Admin|SubAdmin'])->group(function () {
+            Route::middleware(['module:treasury'])->group(function () {
                 Route::prefix('treasury')->name('treasury.')->group(function () {
                     Route::get('/', [TreasuryController::class, 'index'])->name('index');
                     Route::post('/', [TreasuryController::class, 'store'])->name('store');
@@ -147,11 +156,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
                     Route::post('/settings', [TreasuryController::class, 'updateSettings'])->name('settings.update');
                 });
             });
-        });
-
-        // Productos: eliminar (solo Admin)
-        Route::middleware(['role:Admin', 'module:financial'])->group(function () {
-            Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
         });
 
         // 3. Módulo de Programación

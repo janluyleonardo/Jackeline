@@ -186,19 +186,17 @@
 
               <!-- Categoria -->
               <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Categoría <span
-                    class="text-red-500">*</span></label>
-                <select name="Categoria" required
-                  class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all text-sm">
-                  <option value="">Seleccione...</option>
-                  <option value="Mayores" {{ old('Categoria') == 'Mayores' ? 'selected' : '' }}>Mayores (18+ años)
-                  </option>
-                  @php $currentYear = date('Y'); @endphp
-                  @for ($year = ($currentYear - 5); $year >= ($currentYear - 17); $year--)
-                    <option value="{{ $year }}" {{ old('Categoria') == $year ? 'selected' : '' }}>Categoría {{ $year }}
-                    </option>
-                  @endfor
-                </select>
+                <x-category-select
+                    :categories="$categories"
+                    name="Categoria"
+                    label="Categoría"
+                    required="true"
+                    value="{{ old('Categoria') }}"
+                    placeholder="Buscar o elegir categoría..."
+                    inputClass="focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    hoverBgClass="hover:bg-blue-50 hover:text-blue-500"
+                    selectedBgClass="bg-blue-50 text-blue-500"
+                />
               </div>
 
               @role('Admin')

@@ -49,7 +49,23 @@ class StudentsController extends Controller
   public function create()
   {
     $clubs = auth()->user()->is_super_admin ? \App\Models\Club::all() : collect();
-    return view('students.create', compact('clubs'));
+
+    $categoriesQuery = Student::query()
+        ->whereNotNull('Categoria')
+        ->where('Categoria', '!=', '');
+
+    if (!auth()->user()->is_super_admin) {
+        $categoriesQuery->where('club_id', auth()->user()->club_id);
+    }
+
+    $categories = $categoriesQuery
+        ->distinct()
+        ->orderBy('Categoria')
+        ->pluck('Categoria')
+        ->values()
+        ->all();
+
+    return view('students.create', compact('clubs', 'categories'));
   }
 
   /**
@@ -158,7 +174,23 @@ class StudentsController extends Controller
     $hoy = now()->format('Y-m-d');
     $id = $student->id;
     $clubs = auth()->user()->is_super_admin ? \App\Models\Club::all() : collect();
-    return view('students.edit', compact('student', 'hoy', 'clubs'));
+
+    $categoriesQuery = Student::query()
+        ->whereNotNull('Categoria')
+        ->where('Categoria', '!=', '');
+
+    if (!auth()->user()->is_super_admin) {
+        $categoriesQuery->where('club_id', auth()->user()->club_id);
+    }
+
+    $categories = $categoriesQuery
+        ->distinct()
+        ->orderBy('Categoria')
+        ->pluck('Categoria')
+        ->values()
+        ->all();
+
+    return view('students.edit', compact('student', 'hoy', 'clubs', 'categories'));
   }
 
   /**

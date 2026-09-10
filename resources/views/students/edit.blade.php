@@ -140,15 +140,17 @@
 
               <!-- Categoria -->
               <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Categoría <span class="text-red-500">*</span></label>
-                <select name="Categoria" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all text-sm">
-                  <option value="">Seleccione...</option>
-                  <option value="Mayores" {{ old('Categoria', $student->Categoria) == 'Mayores' ? 'selected' : '' }}>Mayores (18+ años)</option>
-                  @php $currentYear = date('Y'); @endphp
-                  @for ($year = ($currentYear - 5); $year >= ($currentYear - 17); $year--)
-                    <option value="{{ $year }}" {{ old('Categoria', $student->Categoria) == $year ? 'selected' : '' }}>Categoría {{ $year }}</option>
-                  @endfor
-                </select>
+                <x-category-select
+                    :categories="$categories"
+                    name="Categoria"
+                    label="Categoría"
+                    required="true"
+                    value="{{ old('Categoria', $student->Categoria) }}"
+                    placeholder="Buscar o elegir categoría..."
+                    inputClass="focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    hoverBgClass="hover:bg-blue-50 hover:text-blue-500"
+                    selectedBgClass="bg-blue-50 text-blue-500"
+                />
               </div>
 
               @role('Admin')
@@ -301,28 +303,28 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="md:col-span-2">
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre Completo <span class="text-red-500">*</span></label>
-                <input type="text" name="nombrePapa" value="{{ old('nombrePapa', $student->nombrePapa) }}" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Nombre Completo</label>
+                <input type="text" name="nombrePapa" value="{{ old('nombrePapa', $student->nombrePapa) }}" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
               </div>
 
               <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Nº Documento <span class="text-red-500">*</span></label>
-                <input type="number" name="documentoPapa" value="{{ old('documentoPapa', $student->documentoPapa) }}" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Nº Documento</label>
+                <input type="number" name="documentoPapa" value="{{ old('documentoPapa', $student->documentoPapa) }}" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
               </div>
 
               <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Teléfono <span class="text-red-500">*</span></label>
-                <input type="number" name="telefonoPapa" value="{{ old('telefonoPapa', $student->telefonoPapa) }}" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Teléfono</label>
+                <input type="number" name="telefonoPapa" value="{{ old('telefonoPapa', $student->telefonoPapa) }}" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
               </div>
 
               <div class="md:col-span-2">
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Correo Electrónico <span class="text-red-500">*</span></label>
-                <input type="email" name="correoPapa" value="{{ old('correoPapa', $student->correoPapa) }}" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Correo Electrónico</label>
+                <input type="email" name="correoPapa" value="{{ old('correoPapa', $student->correoPapa) }}" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
               </div>
 
               <div class="md:col-span-2">
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Dirección <span class="text-red-500">*</span></label>
-                <input type="text" name="direccionPapa" value="{{ old('direccionPapa', $student->direccionPapa) }}" required class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
+                <label class="block text-sm font-semibold text-gray-700 mb-1">Dirección</label>
+                <input type="text" name="direccionPapa" value="{{ old('direccionPapa', $student->direccionPapa) }}" class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all">
               </div>
             </div>
 

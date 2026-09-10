@@ -128,7 +128,7 @@
                                             <span class="ml-auto text-[9px] font-black bg-club-secondary text-gray-900 px-1.5 py-0.5 rounded-full uppercase">Admin</span>
                                         </a>
 
-                                        @module('financial')
+                                        @module('inventory')
                                         <div class="border-t border-gray-100 my-1.5"></div>
                                         <a href="{{ route('products.index') }}"
                                            class="flex items-center px-4 py-2.5 text-sm font-semibold transition-colors
@@ -140,7 +140,9 @@
                                             {{ __('Inventario') }}
                                             <span class="ml-auto text-[9px] font-black bg-club-secondary text-gray-900 px-1.5 py-0.5 rounded-full uppercase tracking-tighter">Stock</span>
                                         </a>
+                                        @endmodule
 
+                                        @module('treasury')
                                         <a href="{{ route('treasury.index') }}"
                                            class="flex items-center px-4 py-2.5 text-sm font-semibold transition-colors
                                                   {{ request()->routeIs('treasury.index') ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-50' }}">
@@ -342,12 +344,14 @@
                                 <span class="ml-auto text-[9px] font-black bg-club-secondary text-gray-900 px-1.5 py-0.5 rounded-full uppercase">Admin</span>
                             </a>
 
-                            @module('financial')
+                            @module('inventory')
                             <a href="{{ route('products.index') }}" class="flex items-center px-3 py-3 rounded-xl text-sm font-semibold transition-all {{ request()->routeIs('products.*') ? 'bg-blue-50 text-club-primary border-l-4 border-club-primary' : 'text-gray-700 hover:bg-gray-50' }}">
                                 <i class="bi bi-box-seam mr-3 text-base {{ request()->routeIs('products.*') ? 'text-club-primary' : 'text-gray-400' }}"></i>
                                 {{ __('Inventario') }}
                             </a>
+                            @endmodule
 
+                            @module('treasury')
                             <div class="border-t border-gray-100 my-2"></div>
                             <a href="{{ route('treasury.index') }}" class="flex items-center px-3 py-3 rounded-xl text-sm font-semibold transition-all {{ request()->routeIs('treasury.index') ? 'bg-blue-50 text-club-primary border-l-4 border-club-primary' : 'text-gray-700 hover:bg-gray-50' }}">
                                 <i class="bi bi-bank2 mr-3 text-base {{ request()->routeIs('treasury.index') ? 'text-club-primary' : 'text-gray-400' }}"></i>
