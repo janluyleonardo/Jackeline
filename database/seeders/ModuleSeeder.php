@@ -40,6 +40,12 @@ class ModuleSeeder extends Seeder
                 'description' => 'Control de caja, movimientos y tesorería',
                 'is_active' => true,
             ],
+            [
+                'name' => 'Módulo de Canchas',
+                'slug' => 'locations',
+                'description' => 'Gestión de canchas y disponibilidad para clases y partidos',
+                'is_active' => true,
+            ],
         ];
 
         foreach ($modules as $module) {

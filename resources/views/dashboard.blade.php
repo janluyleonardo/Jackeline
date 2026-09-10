@@ -315,6 +315,55 @@
                     });
                 </script>
             @else
+                @php
+                    $clubModules = auth()->user()->club?->modules ?? collect();
+                @endphp
+
+                <div class="bg-white border border-slate-100 rounded-2xl p-5 shadow-sm mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-gray-900 flex items-center">
+                            <i class="bi bi-puzzle-fill text-club-primary mr-2"></i>
+                            {{ __('Módulos contratados') }}
+                        </h3>
+                        <span class="text-xs font-black text-gray-500 uppercase tracking-wider">
+                            {{ $clubModules->count() }} {{ __('activos') }}
+                        </span>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        @forelse($clubModules as $mod)
+                            @php
+                                $colorClass = match($mod->slug) {
+                                    'financial' => 'bg-emerald-50 text-emerald-700 border-emerald-200',
+                                    'classes' => 'bg-blue-50 text-blue-700 border-blue-200',
+                                    'tournaments' => 'bg-amber-50 text-amber-700 border-amber-200',
+                                    'inventory' => 'bg-violet-50 text-violet-700 border-violet-200',
+                                    'treasury' => 'bg-indigo-50 text-indigo-700 border-indigo-200',
+                                    default => 'bg-slate-50 text-slate-700 border-slate-200',
+                                };
+
+                                $iconClass = match($mod->slug) {
+                                    'financial' => 'bi-cash-coin',
+                                    'classes' => 'bi-calendar-check',
+                                    'tournaments' => 'bi-trophy',
+                                    'inventory' => 'bi-box-seam',
+                                    'treasury' => 'bi-bank2',
+                                    default => 'bi-plugin',
+                                };
+                            @endphp
+
+                            <span class="inline-flex items-center px-3 py-1.5 rounded-xl text-xs font-bold border {{ $colorClass }}">
+                                <i class="bi {{ $iconClass }} mr-1.5"></i>
+                                {{ $mod->name }}
+                            </span>
+                        @empty
+                            <span class="text-sm text-gray-400 italic">
+                                {{ __('Sin módulos contratados') }}
+                            </span>
+                        @endforelse
+                    </div>
+                </div>
+
                 <!-- Sección de Fotos -->
                 <div
                     class="bg-white overflow-hidden shadow-sm sm:rounded-2xl border border-gray-100 hover:shadow-md transition-shadow duration-300">

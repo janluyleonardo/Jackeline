@@ -117,6 +117,7 @@
                                             {{ __('Usuarios') }}
                                             <span class="ml-auto text-[9px] font-black bg-club-secondary text-gray-900 px-1.5 py-0.5 rounded-full uppercase">Admin</span>
                                         </a>
+                                        @module('locations')
                                         <a href="{{ route('locations.index') }}"
                                            class="flex items-center px-4 py-2.5 text-sm font-semibold transition-colors
                                                   {{ request()->routeIs('locations.*') ? 'bg-yellow-50 text-gray-900' : 'text-gray-700 hover:bg-gray-50' }}">
@@ -127,6 +128,7 @@
                                             {{ __('Canchas') }}
                                             <span class="ml-auto text-[9px] font-black bg-club-secondary text-gray-900 px-1.5 py-0.5 rounded-full uppercase">Admin</span>
                                         </a>
+                                        @endmodule
 
                                         @module('inventory')
                                         <div class="border-t border-gray-100 my-1.5"></div>
@@ -338,11 +340,13 @@
                                 <span class="ml-auto text-[9px] font-black bg-club-secondary text-gray-900 px-1.5 py-0.5 rounded-full uppercase">Admin</span>
                             </a>
 
+                            @module('locations')
                             <a href="{{ route('locations.index') }}" class="flex items-center px-3 py-3 rounded-xl text-sm font-semibold transition-all {{ request()->routeIs('locations.*') ? 'bg-blue-50 text-club-primary border-l-4 border-club-primary' : 'text-gray-700 hover:bg-gray-50' }}">
                                  <i class="bi bi-geo-alt-fill mr-3 text-base {{ request()->routeIs('locations.*') ? 'text-club-primary' : 'text-gray-400' }}"></i>
                                 {{ __('Canchas') }}
                                 <span class="ml-auto text-[9px] font-black bg-club-secondary text-gray-900 px-1.5 py-0.5 rounded-full uppercase">Admin</span>
                             </a>
+                            @endmodule
 
                             @module('inventory')
                             <a href="{{ route('products.index') }}" class="flex items-center px-3 py-3 rounded-xl text-sm font-semibold transition-all {{ request()->routeIs('products.*') ? 'bg-blue-50 text-club-primary border-l-4 border-club-primary' : 'text-gray-700 hover:bg-gray-50' }}">

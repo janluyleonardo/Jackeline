@@ -61,11 +61,12 @@ class DatabaseSeeder extends Seeder
         $moduleClasses = Module::where('slug', 'classes')->first();
         $moduleInventory = Module::where('slug', 'inventory')->first();
         $moduleTreasury = Module::where('slug', 'treasury')->first();
+        $moduleLocations = Module::where('slug', 'locations')->first();
 
         // Club Jackeline FS tiene todos los módulos activos por defecto
         if ($clubJackeline) {
             $clubJackelineModules = [];
-            foreach ([$moduleFinancial, $moduleClasses, $moduleInventory, $moduleTreasury, $moduleTorneos] as $module) {
+            foreach ([$moduleFinancial, $moduleClasses, $moduleInventory, $moduleTreasury, $moduleTorneos, $moduleLocations] as $module) {
                 if ($module) {
                     $clubJackelineModules[] = $module->id;
                 }
@@ -79,7 +80,7 @@ class DatabaseSeeder extends Seeder
         // Club Rodesa tiene todos los módulos activos por defecto
         if ($clubRodesa) {
             $clubRodesaModules = [];
-            foreach ([$moduleTorneos, $moduleFinancial, $moduleClasses, $moduleInventory, $moduleTreasury] as $module) {
+            foreach ([$moduleTorneos, $moduleFinancial, $moduleClasses, $moduleInventory, $moduleTreasury, $moduleLocations] as $module) {
                 if ($module) {
                     $clubRodesaModules[] = $module->id;
                 }

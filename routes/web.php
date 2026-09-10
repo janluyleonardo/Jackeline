@@ -100,8 +100,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
                 Route::post('schedules/merge', [ClassScheduleController::class, 'merge'])->name('schedules.merge');
             });
 
+            Route::middleware(['module:locations'])->group(function () {
+                Route::resource('locations', LocationController::class)->only(['index', 'store', 'update']);
+            });
+
             Route::resource('users', UserController::class)->except(['destroy']);
-            Route::resource('locations', LocationController::class)->only(['index', 'store', 'update']);
             Route::get('/export', [StudentsController::class, 'export'])->name('export');
             Route::get('/export-template', [StudentsController::class, 'exportTemplate'])->name('export.template');
             Route::post('/import', [StudentsController::class, 'import'])->name('import');
@@ -119,7 +122,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
             });
 
             Route::delete('users/{user}', [UserController::class, 'destroy'])->name('users.destroy');
-            Route::delete('locations/{location}', [LocationController::class, 'destroy'])->name('locations.destroy');
+            Route::middleware(['module:locations'])->group(function () {
+                Route::delete('locations/{location}', [LocationController::class, 'destroy'])->name('locations.destroy');
+            });
             Route::delete('/students/{student}', [StudentsController::class, 'destroy'])->name('students.destroy');
             Route::delete('/programming/{programming}', [ProgrammingController::class, 'destroy'])->name('programming.destroy');
         });
