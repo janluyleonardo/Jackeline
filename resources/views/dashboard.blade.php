@@ -339,6 +339,7 @@
                                     'tournaments' => 'bg-amber-50 text-amber-700 border-amber-200',
                                     'inventory' => 'bg-violet-50 text-violet-700 border-violet-200',
                                     'treasury' => 'bg-indigo-50 text-indigo-700 border-indigo-200',
+                                    'payroll' => 'bg-amber-50 text-amber-700 border-amber-200',
                                     default => 'bg-slate-50 text-slate-700 border-slate-200',
                                 };
 
@@ -348,6 +349,8 @@
                                     'tournaments' => 'bi-trophy',
                                     'inventory' => 'bi-box-seam',
                                     'treasury' => 'bi-bank2',
+                                    'payroll' => 'bi-cash-stack',
+                                    'locations' => 'bi-geo-alt-fill',
                                     default => 'bi-plugin',
                                 };
                             @endphp
