@@ -41,6 +41,12 @@ class ModuleSeeder extends Seeder
                 'is_active' => true,
             ],
             [
+                'name' => 'Módulo de Nómina',
+                'slug' => 'payroll',
+                'description' => 'Gestión de pagos a profesores y historial de nómina',
+                'is_active' => true,
+            ],
+            [
                 'name' => 'Módulo de Canchas',
                 'slug' => 'locations',
                 'description' => 'Gestión de canchas y disponibilidad para clases y partidos',

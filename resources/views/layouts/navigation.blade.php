@@ -155,6 +155,9 @@
                                             {{ __('Tesorería') }}
                                             <span class="ml-auto text-[9px] font-black bg-indigo-100 text-indigo-600 px-1.5 py-0.5 rounded-full uppercase">Caja</span>
                                         </a>
+                                        @endmodule
+
+                                        @module('payroll')
                                         <a href="{{ route('treasury.salaries') }}"
                                            class="flex items-center px-4 py-2.5 text-sm font-semibold transition-colors
                                                   {{ request()->routeIs('treasury.salaries') ? 'bg-indigo-50 text-indigo-600' : 'text-gray-700 hover:bg-gray-50' }}">
@@ -361,7 +364,9 @@
                                 <i class="bi bi-bank2 mr-3 text-base {{ request()->routeIs('treasury.index') ? 'text-club-primary' : 'text-gray-400' }}"></i>
                                 {{ __('Tesorería') }}
                             </a>
+                            @endmodule
 
+                            @module('payroll')
                             <a href="{{ route('treasury.salaries') }}" class="flex items-center px-3 py-3 rounded-xl text-sm font-semibold transition-all {{ request()->routeIs('treasury.salaries') ? 'bg-blue-50 text-club-primary border-l-4 border-club-primary' : 'text-gray-700 hover:bg-gray-50' }}">
                                 <i class="bi bi-cash-stack mr-3 text-base {{ request()->routeIs('treasury.salaries') ? 'text-club-primary' : 'text-gray-400' }}"></i>
                                 {{ __('Nómina') }}
