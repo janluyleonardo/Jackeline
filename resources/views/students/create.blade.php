@@ -20,7 +20,7 @@
       <div class="bg-white overflow-hidden shadow-sm sm:rounded-2xl border border-gray-100">
 
         <form action="{{ route('students.store') }}" method="post" enctype="multipart/form-data" class="p-6 sm:p-8"
-          x-data="{ 
+          x-data="{
             activeTab: '{{ $errors->any() ? 'athlete' : 'athlete' }}',
             submitting: false,
             athleteComplete: false,
@@ -86,8 +86,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
               <!-- Foto -->
-              <div class="lg:col-span-3" x-data="{ 
-                  preview: '', 
+              <div class="lg:col-span-3" x-data="{
+                  preview: '',
                   fileName: '',
                   isNew: false
               }">
@@ -186,20 +186,26 @@
 
               <!-- Categoria -->
               <div>
-                <label class="block text-sm font-semibold text-gray-700 mb-1">Categoría <span
-                    class="text-red-500">*</span></label>
-                <select name="Categoria" required
-                  class="block w-full rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200 transition-all text-sm">
-                  <option value="">Seleccione...</option>
-                  <option value="Mayores" {{ old('Categoria') == 'Mayores' ? 'selected' : '' }}>Mayores (18+ años)
-                  </option>
-                  @php $currentYear = date('Y'); @endphp
-                  @for ($year = ($currentYear - 5); $year >= ($currentYear - 17); $year--)
-                    <option value="{{ $year }}" {{ old('Categoria') == $year ? 'selected' : '' }}>Categoría {{ $year }}
-                    </option>
-                  @endfor
-                </select>
+                <x-category-select
+                    :categories="$categories"
+                    name="Categoria"
+                    label="Categoría"
+                    required="true"
+                    value="{{ old('Categoria') }}"
+                    placeholder="Buscar o elegir categoría..."
+                    inputClass="focus:border-blue-500 focus:ring focus:ring-blue-200"
+                    hoverBgClass="hover:bg-blue-50 hover:text-blue-500"
+                    selectedBgClass="bg-blue-50 text-blue-500"
+                />
               </div>
+
+              @role('Admin')
+                <div class="flex items-center rounded-lg border border-amber-200 bg-amber-50 p-3">
+                  <input type="hidden" name="becado" value="0">
+                  <input type="checkbox" name="becado" value="1" id="becado" {{ old('becado') ? 'checked' : '' }} class="rounded border-amber-300 text-amber-600 focus:ring-amber-500">
+                  <label for="becado" class="ml-2 text-sm font-bold text-amber-800">Deportista becado</label>
+                </div>
+              @endrole
 
               <!-- Género -->
               <div>
