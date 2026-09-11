@@ -15,6 +15,9 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PasswordChangeController;
 use App\Http\Controllers\TournamentController;
 use App\Http\Controllers\SuperAdmin\ClubController;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Mail\Mailable;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -206,3 +209,13 @@ Route::get('/Programming', [generalController::class, 'Programming'])->name('Pro
 Route::get('/Announcements', [generalController::class, 'Announcements'])->name('Announcements');
 
 require __DIR__ . '/auth.php';
+
+
+class TestMail extends Mailable
+{
+    public function build()
+    {
+        return $this->subject('Prueba de correo')
+                    ->view('emails.test');
+    }
+}
